@@ -1,0 +1,66 @@
+
+
+<div class="container py-4"> 
+    <div class="profile-card mx-auto"> 
+        <!-- Top Header Banner -->
+        <div class="profile-header-banner">
+            <!-- Back Button -->
+           <button type="button" class="back-button" (click)="back()">
+      <span>←</span>
+      Back
+    </button> 
+            <!-- Active Status Badge -->
+            <span class="status-badge-top">
+                <i class="fa-solid fa-circle text-xs me-1"></i> {{user.status == 1? 'Active':'Inactive'}}
+            </span>
+            <!-- Decorative Pattern -->
+            <div class="banner-design-circle"></div>
+        </div>
+        <!-- Body Content -->
+        <div class="profile-body-content">           
+           <!-- User Title Header -->
+            <div class="profile-title text-center mb-4">
+                <h2>{{user.name}}</h2>
+                <p>{{user.designation}}</p>
+            </div> 
+            <!-- Balanced 2-Column Grid -->
+            <div class="profile-info-grid">
+                <div class="info-box">
+                    <label>Name</label>
+                    <h6>{{user.name}}</h6>
+                </div>
+                <div class="info-box">
+                    <label>Employee ID</label>
+                    <h6>{{user.employeeId}}</h6>
+                </div>
+                <div class="info-box">
+                    <label>Contact No</label>
+                    <h6>{{user.contactNo}}</h6>
+                </div>
+                <div class="info-box">
+                    <label>Email</label>
+                    <h6>{{user.email}}</h6>
+                </div>
+                <div class="info-box">
+                    <label>Designation</label>
+                    <h6>{{user.designation}}</h6>
+                </div>
+                <div class="info-box">
+                    <label>Status</label>
+                    <h6 class="text-success">{{user.status == 1? 'Active':'Inactive'}}</h6>
+                </div> 
+                <div class="info-box">
+                    <label>Role</label>
+                    <h6>{{user.roles[0].name}}</h6>
+                </div> 
+            </div> 
+            <!-- Edit Button (Bottom Right) -->
+            <div class="d-flex justify-content-end mt-4 pt-2">
+                <button class="btn btn-edit">
+                    <i class="fa-solid fa-pen-to-square me-2"></i> Edit Profile
+                </button>
+            </div> 
+        </div> 
+    </div>
+</div>
+ 

@@ -1,0 +1,200 @@
+<div class="user-view-page">
+
+  <div class="back-button-wrapper">
+    <button type="button" class="back-button" (click)="back()">
+      <span>←</span>
+      Back
+    </button>
+  </div>
+
+  <div class="customer-card">
+    <div class="page-header">
+
+      <!-- LEFT -->
+      <h1>
+        <!-- <i class="bi bi-person-fill"></i> -->
+        User Information
+      </h1>
+
+      <!-- RIGHT -->
+      <div class="detail-item">
+
+        <div class="detail-value">
+
+          @if (userData.status == 1) {
+          <div class="mt-1">
+            <span class="badge bg-success">
+              ACTIVE
+            </span>
+          </div>
+          } @else {
+
+          <div class="mt-1">
+            <span class="badge bg-danger">
+              Inactive
+            </span>
+          </div>
+          }
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ================= USER DETAILS ================= -->
+
+    <section class="user-details-section">
+
+      <h2>BASIC DETAILS</h2>
+
+      <div class="user-details-grid">
+
+        <!-- ROW 1 -->
+
+        <div class="detail-item">
+          <div class="detail-label">NAME</div>
+          <div class="detail-value">
+            {{ userData.name }}
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">DESIGNATION</div>
+          <div class="detail-value">
+            {{ userData.designation }}
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">CONTACT NUMBER</div>
+          <div class="detail-value">
+            {{ userData.contactNo }}
+          </div>
+        </div>
+
+
+        <!-- ROW 2 -->
+
+        <div class="detail-item">
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">CREATED TIME</div>
+          <div class="detail-value">
+            {{ userData.createdTime | date:'dd-MM-yyyy'}}
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">EMAIL ADDRESS</div>
+          <div class="detail-value">
+            {{ userData.email }}
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= DIVIDER ================= -->
+
+    <div class="section-divider"></div>
+
+
+    <!-- ================= ASSIGNED PROJECT ================= -->
+
+    <section class="project-section">
+
+      <h2>ASSIGNED PROJECT</h2>
+
+      <div class="project-table-wrapper">
+
+        <table class="project-table">
+
+          <colgroup>
+            <col class="project-col">
+            <col class="date-col">
+            <col class="company-col">
+            <col class="status-col">
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th>PROJECT NAME</th>
+              <th>PROJECT START DATE</th>
+              <th>PROJECT END DATE</th>
+              <th>PROJECT STATUS</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            @for (project of userData.project; track project.id) {
+
+            <tr>
+
+              <td>
+                <div class="project-field">
+                  <div class="detail-value fw-bold">
+                    {{ project.projectName }}
+                  </div>
+                </div>
+              </td>
+
+              <td>
+                <div class="project-field">
+                  <div class="detail-value fw-bold">
+                    {{ project.projectStartDate | date:'dd-MM-yyyy' }}
+                  </div>
+                </div>
+              </td>
+
+              <td>
+                <div class="project-field">
+                  <div class="detail-value fw-bold">
+                    {{ project.projectEndDate | date:'dd-MM-yyyy' }}
+                  </div>
+                </div>
+              </td>
+
+              <td>
+                <div class="project-field">
+
+                  @if (project.status === 'ACTIVE') {
+
+                  <span class="badge bg-success">
+                    {{ project.status }}
+                  </span>
+
+                  } @else if (project.status === 'INACTIVE') {
+
+                  <span class="badge bg-danger">
+                    {{ project.status }}
+                  </span>
+
+                  } @else {
+
+                  <span class="badge bg-primary">
+                    {{ project.status }}
+                  </span>
+
+                  }
+
+                </div>
+              </td>
+
+            </tr>
+
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+  </div>
+</div>

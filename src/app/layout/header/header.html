@@ -1,0 +1,86 @@
+<nav id="topNavbar" class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm border-bottom">
+    <div class="container-fluid px-4">
+        <!-- Mobile Menu -->
+        <button class="btn btn-outline-primary rounded-circle d-lg-none me-3" type="button" (click)="toggleSidebar()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <!-- Welcome -->
+        <div class="flex-grow-1 welcome-text">
+            <h5>
+                Welcome,
+                <span class="text-primary">{{ user.name }}</span>
+            </h5>
+
+        </div>
+        <!-- User Dropdown -->
+        <div class="dropdown ms-auto">
+            <a id="profileDropdown" class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#"
+                data-bs-toggle="dropdown">
+                <div class="text-end me-3 d-none d-md-block">
+                    <!-- <div class="fw-normal text-dark">
+                        {{ user.username }}
+                    </div> -->
+                    <!-- <small class="text-muted">
+                        {{ user.employeeId }} |
+                        {{ user.roles[0].name }}
+                    </small> -->
+                </div>
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3">
+
+                <!-- Profile -->
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" routerLink="/admin-profile">
+
+                        <i class="fa-solid fa-user text-primary" style="width: 20px;"></i>
+
+                        <span>Profile</span>
+                    </a>
+                </li>
+
+
+                <!-- Change Password -->
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" routerLink="/change-password">
+
+                        <i class="bi bi-lock" style="width: 20px;"></i>
+
+                        <span>Change Password</span>
+                    </a>
+                </li>
+
+
+                <!-- Company's Profile -->
+                <li *ngIf="role === 'ROLE_ADMIN' ">
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" routerLink="/company">
+
+                        <i class="fa-solid fa-gear text-success" style="width: 20px;"></i>
+
+                        <span>Company's Profile</span>
+                    </a>
+                </li>
+
+
+                <!-- Divider -->
+                <li>
+                    <hr class="dropdown-divider my-1">
+                </li>
+
+
+                <!-- Logout -->
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger" (click)="logout()">
+
+                        <i class="fa-solid fa-right-from-bracket" style="width: 20px;"></i>
+
+                        <span>Logout</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

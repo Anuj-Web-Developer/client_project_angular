@@ -1,0 +1,106 @@
+
+<div class="customer-view-page">
+  <div class="back-button-wrapper">
+    <button type="button" class="back-button" (click)="back()">
+      <span>←</span>
+      Back
+    </button>
+  </div>
+  <!-- ================= PAGE TITLE ================= -->
+   <div class="customer-card">
+
+  <div class="page-header">
+    <h1>
+      Customer Information
+    </h1>
+  </div>
+  <!-- ================= CUSTOMER DETAILS ================= -->
+  <section class="customer-section">
+    <h2>Basic Details</h2>
+    <div class="customer-grid">
+      <!-- ROW 1 -->
+      <div class="customer-item">
+        <div class="detail-label">Customer Name</div>
+        <div class="detail-value">{{customer.name}}</div>
+      </div>
+      <div class="customer-item">
+        <div class="detail-label">Company Name</div>
+        <div class="detail-value">{{customer.companyName}}</div>
+      </div>
+      <div class="customer-item">
+        <div class="detail-label">Contact</div>
+        <div class="detail-value">{{customer.contact}}</div>
+      </div>
+      <div class="customer-item">
+        <div class="detail-label">Email</div>
+        <div class="detail-value">{{customer.email}}</div>
+      </div>
+      <!-- ROW 2 -->
+      <div class="customer-item">
+        <div class="detail-label">GST no. / Tax no.</div>
+        <div class="detail-value">{{customer.gstNo || 'N/A'}}</div>
+      </div>
+      <div class="customer-item">
+        <div class="detail-label">Address</div>
+        <div class="detail-value">{{customer.address || 'N/A'}}</div>
+      </div>
+      <div class="customer-item">
+        <div class="detail-label">Billing Address</div>
+        <div class="detail-value">{{customer.billingAddress || 'N/A'}}</div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= ASSIGNED PROJECT ================= -->
+  <section class="project-section">
+    <h2>Project List</h2>
+    <div class="project-table-wrapper">
+      <table class="project-table">
+        <colgroup>
+          <col class="sr-col">
+          <col class="project-name-col">
+          <col class="end-date-col">
+          <col class="project-company-col">
+          <col class="project-status-col">
+        </colgroup>
+        <thead>
+          <tr>
+            <th >SR. NO.</th>
+            <th>PROJECT NAME</th>
+            <th>END DATE</th>
+            <th>COMPANY</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(list of projectList; track list.id){
+           <tr>
+            <td class="text-left">{{ $index + 1 }}</td>
+            <td class="fw-bold text-dark text-left">{{ list.projectName }}</td>
+            <td class="text-left">{{ list.projectEndDate | date:'mediumDate' }}</td>
+            <td class="text-left">{{ list.customer.companyName }}</td>
+            <td class="text-left">
+              @if(list.status == 'ACTIVE') {
+                <span class="badge bg-success">
+                  {{list.status}}
+                </span>
+              }@else if(list.status == 'INACTIVE') {
+                <span class="badge bg-danger">
+                  {{list.status}}
+                </span>
+              }@else {
+                <span class="badge bg-primary">
+                  {{list.status}}
+                </span>
+              }
+             
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+  </div>
+</div>
+ 
+ 

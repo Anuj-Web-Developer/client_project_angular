@@ -1,0 +1,48 @@
+<!-- <h3>Total Users: {{ userList.length }}</h3> -->
+<div class="container mt-4">
+    <div class="card shadow-lg border-0">
+        <!-- Header -->
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0" style="color: black; font-weight:700; font-size:18px">User List</h4>
+            <button class="btn btn-light" routerLink="/user/add-User">
+                <i class="bi bi-plus-circle"></i>
+                Add New User
+            </button>
+        </div>
+        <!-- Body -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="userTable" class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <!-- <th>Employee ID</th> -->
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Contact No</th>
+                            <th>Email</th>
+                            <th>Created Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of userList">
+                            <td><a [routerLink]="['/user/view-user',user.id]" id="view" style="text-decoration: none;">{{ user.name }}</a></td>
+                            <td>{{ user.designation }}</td>
+                            <td>{{ user.contactNo }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.createdTime | date:'dd-MM-yyyy' }}</td>
+                            <td>
+                                <span class="badge px-3 py-2" [ngClass]="user.status == 1 ? 'bg-success' : 'bg-danger'">
+                                    {{ user.status == 1 ? 'Active' : 'Inactive' }}
+                                </span>
+                            </td>
+                            <td><button [routerLink]="['/user/add-User', user.id]" type="button" class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ 

@@ -1,0 +1,131 @@
+<header class="dashboard-header">
+    <!-- Left -->
+    <div class="header-left">
+        <img src="assets\images\Navy Logo 5.png" class="header-logo" alt="Logo">
+    </div>
+    <!-- Center -->
+    <div class="welcome-text">
+        <span class="Welcome-lable">Welcome,</span>
+        <h4>{{customerData?.name}}</h4>
+    </div>
+
+    <!-- Right -->
+    <div class="header-right">
+        <div class="dropdown">
+            <a class="profile-toggle dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                <li>
+                    <a class="dropdown-item"
+                        [routerLink]="['/customer/customer-dashboard/customer-profile',customerData?.id]">
+                        <i class="fa-regular fa-user me-2"></i>
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a class="dropdown-item text-danger" (click)="logout()">
+                        <i class="fa-solid fa-right-from-bracket me-2"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div id="project-card">
+    @for(project of projectList; track project.id){
+
+    <div class="project-card">
+        <!-- Project Name -->
+        <div class="project-box">
+
+            <a href="{{project.loginUrl}}" target="_blank" class="project-title-btn text-decoration-none">
+                <i class="fa-solid fa-rocket"></i>
+                Launch Project
+            </a>
+            <!-- Username -->
+            <div class="credential-row" *ngIf="project.id != projectId">
+                <span class="credential-label">Username</span>
+                <div class="credential-value">
+                    <span>{{project.username}}</span>
+                    <button class="password-copy-btn" type="button" title="Copy Username"
+                        (click)="copyText(project.username)">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ************************** Edit Username *********************************************** -->
+
+            <!-- Username -->
+            <div class="credential-row" *ngIf="project.id == projectId">
+                <span class="credential-label">Username</span>
+                <div class="credential-value">
+                    <input type="text" [(ngModel)]="project.username" style="border: none;">
+                    <!-- <span>{{project.username}}</span> -->
+                    <button class="password-copy-btn" type="button" title="Copy Username"
+                        (click)="copyText(project.username)">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- *************************************************************************************** -->
+            <!-- Password -->
+            <div class="credential-row" *ngIf="projectId!=project.id">
+                <span class="credential-label">Password</span>
+                <div class="credential-value">
+                    <span>{{ getHiddenPassword(project.password) }}</span>
+                    <button class="password-copy-btn" type="button" title="Copy Password"
+                        (click)="copyText(project.password)">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- **************************** Update Password ******************************************************* -->
+            <div class="credential-row" *ngIf="projectId==project.id">
+                <span class="credential-label">Password</span>
+                <div class="credential-value">
+                    <input type="text" name="password" [(ngModel)]="project.password" style="border: none;">
+                    <!-- <span>{{ getHiddenPassword(project.password) }}</span> -->
+                    <button class="password-copy-btn" type="button" title="Copy Password"
+                        (click)="copyText(project.password)">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- ****************************************************************************************** -->
+            <div class="project-footer">
+                @if(project.status == 'ACTIVE') {
+                <span class="badge bg-success text-center">
+                    {{project.status}}
+                </span>
+                }@else if(project.status == 'INACTIVE') {
+                <span class="badge bg-danger">{{project.status}}</span>
+                }@else {
+                <span class="badge bg-primary">
+                    {{project.status}}
+                </span>
+                }
+
+                @if(project.id === projectId && isUpdatePassword){
+                <button class="btn btn-primary" (click)=" updateProjectPassword(project)">Save Change</button>
+                }@else {
+                <button class="bi-btn" (click)="editPassword(project.id)">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Edit
+                </button>
+                }
+            </div>
+        </div>
+    </div>
+    }
+</div>

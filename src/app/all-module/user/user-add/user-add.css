@@ -1,0 +1,278 @@
+/* =========================================================
+   1. CARD & CONTAINER STYLING
+   ========================================================= */
+.form-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* Card Header Styling */
+.card-header-purple {
+  background-color: #bfe9ff;
+  color: black;
+  padding: 1rem 1.25rem;
+  border-bottom: none;
+}
+
+/* .header-icon-box {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+  */
+/* =========================================================
+   2. FORM LABELS & FIELD ICONS
+   ========================================================= */
+.label-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.label-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.form-label-text {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #495057;
+  margin-bottom: 0;
+}
+
+/* Icon Background Colors */
+.bg-icon-blue {
+  background-color: #0d6efd;
+}
+
+.bg-icon-cyan {
+  background-color: #0dcaf0;
+}
+
+.bg-icon-green {
+  background-color: #198754;
+}
+
+.bg-icon-orange {
+  background-color: #fd7e14;
+}
+
+.bg-icon-amber {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.bg-icon-teal {
+  background-color: #20c997;
+}
+
+.bg-icon-red {
+  background-color: #dc3545;
+}
+
+.bg-icon-purple {
+  background-color: #635bfc;
+}
+
+/* =========================================================
+   3. INPUT CONTROLS & BUTTONS
+   ========================================================= */
+.custom-input,
+.custom-select {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-input:focus,
+.custom-select:focus {
+  border-color: #635bfc;
+  box-shadow: 0 0 0 0.2rem rgba(99, 91, 252, 0.25);
+}
+
+.custom-input:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+/* Eye Toggle Button */
+.eye-btn {
+  border: 1px solid #ced4da;
+  border-left: none;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  transition: background-color 0.2s ease;
+}
+
+.eye-btn:hover {
+  background-color: #e2e6ea;
+  color: #495057;
+}
+
+.input-group .custom-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Footer Action Buttons */
+.btn-back {
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 1px solid #ced4da;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background-color: #e2e6ea;
+  color: #212529;
+}
+
+.btn-submit {
+  background-color: #80cbf3;
+  color: #212529;
+  border: none;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #53b0e3;
+  color: black;
+} 
+
+.btn-submit:disabled {
+  background-color: #a5a0fd;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* =========================================================
+   4. ANGULAR DUAL-LIST COMPONENT STYLING
+   ========================================================= */
+dual-list {
+  display: block;
+  width: 100%;
+  height: 70%;
+}
+
+.dual-list[_ngcontent-ng-c3590477262] .listbox[_ngcontent-ng-c3590477262] {
+  width: 50%;
+  margin-top: 18px;
+}
+
+::ng-deep .dual-list .list-box {
+  border: 1px solid #ced4da !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  background-color: #ffffff !important;
+  overflow: hidden;
+}
+
+/* Add / Remove Buttons Theme & Alignment */
+::ng-deep .dual-list .btn-primary,
+::ng-deep .dual-list button.btn-add,
+::ng-deep .dual-list button.btn-remove,
+::ng-deep dual-list button[type="button"].btn-primary {
+  background-color: #bfe9ff !important;
+  border-color: #bfe9ff !important;
+  color: black !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .dual-list .btn-primary:hover,
+::ng-deep .dual-list button.btn-add:hover,
+::ng-deep .dual-list button.btn-remove:hover {
+  background-color: #bfe9ff !important;
+  border-color: #bfe9ff !important;
+  color: black !important;
+}
+
+.project12 {
+  width: 100%;
+  background-color: #bfe9ff !important;
+  border-color: #bfe9ff !important;
+  color: black;
+  margin-left: 0%;
+  justify-content: center;
+  display: flex;
+  height: 30px;
+}
+
+/* Dual List All/None Buttons & Text Center Fix */
+::ng-deep dual-list .btn,
+::ng-deep .dual-list button,
+::ng-deep .dual-list .btn-default {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+/* Icons inside Dual List Buttons */
+::ng-deep dual-list .btn i,
+::ng-deep dual-list .btn svg,
+::ng-deep .dual-list button i {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 4px !important;
+}
+
+/* Active State for 'All' Selection Button */
+::ng-deep .dual-list .btn-group .btn-primary,
+::ng-deep .dual-list .button-box button.active {
+  background-color: #bfe9ff !important;
+  border-color: #bfe9ff !important;
+  color: black !important;
+}
+
+/* Items Highlight inside Selected List */
+::ng-deep .dual-list .record-picker li.selected,
+::ng-deep .dual-list .list-group-item.active {
+  background-color: #f0effe !important;
+  color: #635bfc !important;
+  border-left: 3px solid #635bfc !important;
+}
+
+/* Dual List Box Height Increase */
+::ng-deep .dual-list .list-box,
+::ng-deep .dual-list .record-picker,
+::ng-deep .dual-list .list-group {
+  height: 150px !important;
+  /* height badhane ke liye value change karein */
+  min-height: 150px !important;
+  max-height: 150px !important;
+  overflow-y: auto !important;
+  /* Scrollbar enable karne ke liye */
+}
+

@@ -1,0 +1,102 @@
+@if (role === 'ROLE_ADMIN') {
+<div class="company-page">
+
+    <!-- ================= HEADER ================= -->
+    <div class="company-header">
+        <div class="company-title">
+            <!-- Company Logo -->
+            @if (logoUrl(); as logo) {
+            <img [src]="logo" alt="Company Logo" class="company-logo">
+            }
+            <div>
+                <h1>Wevzent Technologies Pvt. Ltd.</h1>
+                <p>View your company profile details</p>
+            </div>
+        </div>
+
+        <button type="button" class="back-button" routerLink="/dashboard">
+            <span>←</span>
+            Back
+        </button>
+    </div>
+
+    <!-- ================= MAIN CARD ================= -->
+    <div class="company-card">
+
+        <!-- ================= BASIC INFORMATION ================= -->
+        <div class="info-section basic-section">
+            <h2>Basic Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Full Name</span>
+                    <span class="info-value">{{ companyData.userName }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Mobile Number</span>
+                    <span class="info-value">{{ companyData.mobile }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Email Address</span>
+                    <span class="info-value">{{ companyData.email }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Designation</span>
+                    <span class="info-value">{{ companyData.designation }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Company / Business Name</span>
+                    <span class="info-value">{{ companyData.companyName }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Company Address</span>
+                    <span class="info-value">{{ companyData.companyAddress }}</span>
+                </div>
+                <div class="info-item full-width">
+                    <span class="info-label">Billing Address</span>
+                    <span class="info-value">{{ companyData.billingAddress }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= BILLING INFORMATION ================= -->
+        <div class="info-section billing-section">
+            <h2>Billing Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">GSTIN / TAX ID</span>
+                    <span class="info-value">{{ companyData.gstno }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Company Phone</span>
+                    <span class="info-value">{{ companyData.companyPhone }}</span>
+                </div>
+
+                <div class="info-item full-width">
+                    <span class="info-label">Website</span>
+                    <a [href]="companyData.website" target="_blank" rel="noopener" class="website-link">
+                        {{ companyData.website }} ↗
+                    </a>
+                </div>
+
+                <!-- Signature -->
+                <div class="info-item">
+                    <span class="info-label">Signature</span>
+                    <div class="image-box signature-box">
+                        @if (signatureUrl(); as signature) {
+                        <img [src]="signature" alt="Company Signature"
+                            class="img-fluid border rounded p-2" style="max-width: 250px; max-height: 100px;">
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <div class="company-footer">
+        <button class="edit-btn" routerLink="/company/add-company" style="margin-left: 45%;">
+            <i class="bi bi-pencil-square"></i> Update
+        </button>
+    </div>
+</div>
+}

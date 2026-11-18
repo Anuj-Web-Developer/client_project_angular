@@ -1,0 +1,32 @@
+.layout-wrapper {
+  min-height: 100vh;
+  background-color: #f4f5f2;
+}
+
+.main-content {
+  min-width: 0; 
+}
+
+.content-area {
+  min-height: calc(100vh - 60px);
+}
+
+@media (max-width: 575.98px) {
+  .content-area {
+    padding: 1rem !important;
+  }
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1040;
+}
+body {
+    background: #F5F9FD;
+}
+
+.main-content {
+    background: #F5F9FD;
+}

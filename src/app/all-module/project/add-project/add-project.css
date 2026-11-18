@@ -1,0 +1,433 @@
+/* ===========================
+   PAGE
+=========================== */
+body{
+    background:#f4f8fb;
+}
+.custom-card{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+/* ===========================
+   HEADER
+=========================== */
+.section-header{
+    background:rgb(103,103,244);
+    color:#fff;
+    padding:18px 25px;
+    border:none;
+}
+.section-header h4{
+    margin:0;
+    font-size:22px;
+    font-weight:700;
+}
+.section-header small{
+    opacity:.9;
+}
+/* .header-icon{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    background:rgba(255,255,255,.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-right:15px;
+    font-size:24px;
+} */
+/* ===========================
+   INNER CARD
+=========================== */
+.info-card{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:25px;
+    border:1px solid #e8eef7;
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
+}
+.info-header{
+    display:flex;
+    align-items:center;
+    margin-bottom:25px;
+}
+.info-header i{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#53b0e3;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-right:15px;
+    font-size:22px;
+}
+.info-header h5{
+    margin:0;
+    font-weight:700;
+    
+}
+/* ===========================
+   FORM
+=========================== */
+.form-label{
+    font-weight:600;
+    color:#444;
+    margin-bottom:8px;
+}
+.form-control{
+    height:50px;
+    border-radius:12px;
+    border:1px solid #d8e2ef;
+    box-shadow:none;
+}
+.form-control:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 0 .20rem rgba(13,110,253,.15);
+}
+.input-group-text,
+.input-group .btn{
+    border-radius:0 12px 12px 0;
+}
+/* ===========================
+   SEARCH
+=========================== */
+.search-group .input-group-text{
+    background:#0d6efd;
+    color:#fff;
+    border:none;
+}
+.customer-dropdown{
+    margin-top:8px;
+    border-radius:15px;
+    overflow:hidden;
+    background:#fff;
+}
+.customer-item{
+    width:100%;
+    border:none;
+    background:#fff;
+    text-align:left;
+    padding:14px 18px;
+    transition:.3s;
+}
+.customer-item:hover{
+    background:#eef5ff;
+}
+.customer-icon{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#0d6efd;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-right:15px;
+    font-size:22px;
+}
+/* ===========================
+   BUTTONS
+=========================== */
+.action-buttons{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:35px;
+}
+.action-buttons .btn{
+    padding:12px 35px;
+    border-radius:12px;
+    font-weight:600;
+}
+.btn-back{
+    background:#6c757d;
+    color:#fff;
+}
+.btn-back:hover{
+    background:#0b7acf;
+    color:#fff;
+}
+.btn-save{
+    background:#80cbf3;
+    color:black;
+}
+
+.btn-update{
+    background:#fd7e14;
+    color:#fff;
+}
+.btn-update:hover{
+    background:#e46d0b;
+    color:#fff;
+}
+/* ===========================
+   MOBILE
+=========================== */
+@media(max-width:768px){
+.action-buttons{
+    flex-direction:column;
+    gap:15px;
+}
+.action-buttons .btn{
+    width:100%;
+}
+.info-card{
+    padding:18px;
+}
+.section-header h4{
+    font-size:18px;
+}
+}/* ==========================================
+   COLOR THEME
+========================================== */
+:root{
+    --primary:#2563eb;
+    --primary-light:#eff6ff;
+    --success:#16a34a;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+    --purple:#7c3aed;
+    --teal:#14b8a6;
+    --dark:#1f2937;
+    --border:#e5e7eb;
+    --bg:#f8fafc;
+}
+body{
+    background:var(--bg);
+}
+/* ==========================================
+   CARD
+========================================== */
+.custom-card{
+    border:none;
+    border-radius:22px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+}
+/* ==========================================
+   HEADER
+========================================== */
+.section-header{
+    background:#bfe9ff;
+    color:black;
+    padding:12px 30px;
+}
+.section-header h4{
+    font-size:18px;
+    font-weight:700;
+}
+
+/* ==========================================
+   SECTION CARD
+========================================== */
+.info-card{
+    border-radius:18px;
+    background:#fff;
+    border:1px solid var(--border);
+    padding:25px;
+    margin-bottom:25px;
+    /* transition:.35s; */
+}
+.info-card:hover{
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+/* ==========================================
+   ICON COLORS
+========================================== */
+.info-header{
+    display:flex;
+    align-items:center;
+    margin-bottom:22px;
+}
+.info-header h5{
+ 
+    font-weight:700;
+    margin:0;
+    color:#1e293b;
+    font-size: large;
+}
+.info-header i{
+    width:47px;
+    height:47px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:20px;
+    margin-right:15px;
+}
+/* Customer */
+.info-card:nth-child(1) .info-header i{
+    background:#53b0e3;
+}
+/* Project */
+.info-card:nth-child(2) .info-header i{
+ 
+  background:#53b0e3;
+}
+/* Login */
+.info-card:nth-child(3) .info-header i{
+      background:#53b0e3;
+}
+/* Server */
+.info-card:nth-child(4) .info-header i{
+    background:#53b0e3;
+}
+/* ==========================================
+   LABEL
+========================================== */
+.form-label{
+    font-weight:600;
+    color:#374151;
+    font-size:15px;
+}
+ 
+/* ==========================================
+   INPUT
+========================================== */
+ 
+.form-control{
+    height:52px;
+    border-radius:12px;
+    border:2px solid #e5e7eb;
+    transition:.30s;
+}
+ 
+.form-control:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 .20rem rgba(37,99,235,.12);
+}
+ 
+/* ==========================================
+   INPUT ICON
+========================================== */
+ 
+.input-group-text{
+  background:#53b0e3;
+    color:white;
+    border:none;
+}
+/* ==========================================
+   PASSWORD BUTTON
+========================================== */
+ 
+.input-group .btn{
+    border:2px solid #e5e7eb;
+    background:#fff;
+}
+ 
+.input-group .btn:hover{
+    background:#2563eb;
+    color:#fff;
+}
+/* ==========================================
+   SEARCH LIST
+========================================== */
+.customer-item{
+    transition:.3s;
+}
+.customer-item:hover{
+    background:#eff6ff;
+}
+.customer-icon{
+ 
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#2563eb;
+    color:#fff;
+    font-size:22px;
+}
+/* ==========================================
+   BUTTONS
+========================================== */
+.btn-back{
+    background:#0b5fd3;
+    color:#fff;
+    border:none;
+}
+.btn-save{
+background: #80cbf3;
+    color:black;
+    border:none;
+}
+.btn-update{
+ 
+    background:linear-gradient(135deg,#f59e0b,#fb923c);
+    color:#fff;
+    border:none;
+}
+.btn{
+    border-radius:12px;
+    font-weight:600;
+    padding:12px 35px;
+    transition:.3s;
+}
+ 
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+/* ==========================================
+   BOOTSTRAP ICON COLORS
+========================================== */
+.bi-person-fill,
+.bi-person-circle,
+.bi-person-badge-fill{
+ 
+    color:#2563eb;
+}
+.bi-envelope-fill{
+ 
+    color:#ef4444;
+}
+.bi-telephone-fill{
+ 
+    color:#16a34a;
+}
+.bi-building{
+ 
+    color:#f59e0b;
+}
+.bi-folder2-open{
+ 
+    color:#22c55e;
+}
+.bi-share-fill{
+ 
+    color:#7c3aed;
+}
+.bi-calendar-event-fill,
+.bi-calendar-check-fill{
+ 
+    color:#fb923c;
+}
+.bi-link-45deg{
+ 
+    color:#0ea5e9;
+}
+.bi-lock-fill,
+.bi-key-fill{
+ 
+    color:#ef4444;
+}
+.bi-server{
+ 
+    color:#f59e0b;
+}
+.bi-globe2{
+ 
+    color:#14b8a6;
+}
+ 

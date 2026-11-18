@@ -1,0 +1,17 @@
+.isActive1 {
+    color: red;
+    border-bottom: 2px solid blue;
+    transition: all 0.5s ease;
+}
+.isActive1:active {
+    transform: scale(0.95);
+}
+
+.isActive2 {
+    color: red;
+    border-bottom: 2px solid blue;
+    transition: all 0.5s ease;
+}
+.isActive2:active {
+    transform: scale(0.95);
+}

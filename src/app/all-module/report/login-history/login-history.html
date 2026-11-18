@@ -1,0 +1,204 @@
+<div class="card shadow-sm border-0 rounded-4 login-history-card">
+    <!-- ================= HEADER ================= -->
+    <div class="card-header bg-white border-bottom py-3">
+        <h4 class="mb-0 fw-bold" style="font-size: 18px">
+            <i
+                class="fa-solid fa-clock-rotate-left me-2 text-primary">
+            </i>
+            Login History
+        </h4>
+    </div>
+    <!-- ================= BODY ================= -->
+    <div class="card-body">
+        <!-- ================= FILTERS ================= -->
+        <div class="row g-3">
+            <!-- FROM DATE -->
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">
+                    From Date
+                </label>
+                <input
+                    type="date"
+                    class="form-control"
+                    name="from"
+                    [(ngModel)]="fromDate">
+            </div>
+            <!-- TO DATE -->
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">
+                    To Date
+                </label>
+                <input
+                    type="date"
+                    class="form-control"
+                    name="to"
+                    [(ngModel)]="toDate">
+            </div>
+            <!-- USER NAME -->
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">
+                    User Name
+                </label>
+                    <select
+                        class="form-select"
+                        name="name"
+                        [(ngModel)]="loginUsername">
+                        <option
+                            value=""
+                            disabled>
+                            Select User's name
+                        </option>
+                        @for (name of username; track name.id) {
+                            <option
+                                [value]="name.name">
+                                {{ name.name }}
+                            </option>
+                        }
+                    </select>
+            </div>
+        </div>
+        <!-- ================= BUTTONS ================= -->
+        <div class="text-center mt-4">
+            <div
+                class="d-flex justify-content-center gap-3 flex-wrap">
+                <!-- SEARCH -->
+                <button
+                    type="button"
+                    class="btn btn-show px-5"
+                    (click)="filter()">
+                    <i
+                        class="fa-solid fa-magnifying-glass me-2">
+                    </i>
+                    Search
+                </button>
+                <!-- DOWNLOAD -->
+                <button
+                    type="button"
+                    class="btn btn-download px-5"
+                    (click)="downloadExcel()">
+                    <i
+                        class="fa-solid fa-download me-2">
+                    </i>
+                    Download
+                </button>
+            </div>
+        </div>
+        <!-- ================= TABLE ================= -->
+        <div
+            class="table-responsive mt-5"
+            *ngIf="isVisible">
+            <table
+                class="table table-hover align-middle">
+                <!-- TABLE HEADER -->
+                <thead class="table-light">
+                    <tr>
+                        <th>
+                            Sr.No
+                        </th>
+                        <th>
+                            Username
+                        </th>
+                        <th>
+                            Login Logs
+                        </th>
+                        <th>
+                            Login Time
+                        </th>
+                        <!-- <th>
+                            Role
+                        </th> -->
+                        <th>
+                            IP Address
+                        </th>
+                        <th>
+                            Browser Name
+                        </th>
+                        <th>
+                            OS Name
+                        </th>
+                        <th>
+                            Host Name
+                        </th>
+                    </tr>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody>
+                    @for (
+                        logs of loginInfo;
+                        track logs.id;
+                        let i = $index
+                    ) {
+                        <tr>
+                            <!-- SERIAL NUMBER -->
+                            <td>
+                                {{ i + 1 }}
+                            </td>
+                            <!-- USERNAME -->
+                            <td>
+                                {{ logs.loginUserName }}
+                            </td>
+                            <!-- LOGIN LOGS -->
+                            <td>
+                                {{ logs.loginLogs }}
+                            </td>
+                            <!-- LOGIN TIME -->
+                            <td>
+                                {{ logs.loginTime | date:'dd-MM-yyyy HH:mm:ss' }}
+                            </td>
+                            <!-- ROLE -->
+                            <!-- @if (logs.role === 1) {
+                                <td>
+                                    <span
+                                        class="badge bg-success">
+                                        ROLE_USER
+                                    </span>
+                                </td>
+                            }
+                            @else if (logs.role === 2) {
+                                <td>
+                                    <span
+                                        class="badge bg-warning text-dark">
+                                        ROLE_PM
+                                    </span>
+                                </td>
+                            }
+                            @else {
+                                <td>
+                                    <span
+                                        class="badge bg-danger">
+                                        ROLE_ADMIN
+                                    </span>
+                                </td>
+                            } -->
+                            <!-- IP -->
+                            <td>
+                                {{ logs.loginIpAddress }}
+                            </td>
+                            <!-- BROWSER -->
+                            <td>
+                                {{ logs.browserName }}
+                            </td>
+                            <!-- OS -->
+                            <td>
+                                {{ logs.osName }}
+                            </td>
+                            <!-- HOST -->
+                            <td>
+                                {{ logs.hostName }}
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <!-- ================= NO DATA ================= -->
+        <div
+            class="d-flex justify-content-center mt-4"
+            *ngIf="!isVisible">
+            <p class="text-muted mb-0">
+                Login history not found
+            </p>
+        </div>
+    </div>
+</div>

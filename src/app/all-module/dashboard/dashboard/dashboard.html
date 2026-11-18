@@ -1,0 +1,267 @@
+<div class="container-fluid dashboard-container" *ngIf="role === 'ROLE_ADMIN'">
+
+    <!-- ================= Dashboard Cards ================= -->
+    <div class="row g-4 mb-4">
+        <!-- Total Users -->
+        <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="card dashboard-card users-card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title text-uppercase">
+                                Total Users
+                            </h6>
+                            <h2 class="display-6 fw-normal mb-0">
+                                {{totalUser}}
+                            </h2>
+                            <small class="text-muted">
+                                Registered Users
+                            </small>
+                        </div>
+                        <div class="dashboard-icon bg-primary-subtle text-primary">
+                            <i class="fa-solid fa-users" style="font-size: 22px"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Total Customers -->
+        <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="card dashboard-card customers-card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title text-uppercase">
+                                Total Customers
+                            </h6>
+                            <h2 class="display-6 fw-normal mb-0">
+                                {{totalCustomer}}
+                            </h2>
+                            <small class="text-muted">
+                                Active Customers
+                            </small>
+                        </div>
+                        <div class="dashboard-icon bg-success-subtle text-success">
+                            <i class="fa-solid fa-user-group" style="font-size: 22px"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Total Projects -->
+        <div class="col-xl-4 col-lg-12">
+            <div class="card dashboard-card projects-card h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title text-uppercase">
+                                Total Projects
+                            </h6>
+                            <h2 class="display-6 fw-normal mb-0">
+                                {{totalProject}}
+                            </h2>
+                            <small class="text-muted">
+                                Running Projects
+                            </small>
+                        </div>
+                        <div class="dashboard-icon bg--subtle text-warning">
+                            <i class="fa-solid fa-diagram-project" style="font-size: 22px"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ================= Users Table ================= -->
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card dashboard-table-card">
+                <div class="card-header dashboard-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 id="user-dtl">
+                            <i class="fa-solid fa-users text-secondary me-2"></i>
+                            Recently Added Users
+                        </h5>
+                        <a routerLink="/user" class="btn btn-outline-primary btn-sm rounded-pill">
+                            <i class="fa-solid fa-eye me-1"></i>
+                            View All
+                        </a>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Contact No.</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            @for(list of userList; track list.id){
+                            <tr>
+                                <td>{{$index+1}}</td>
+                                <td>
+                                    <div class="fw-normal">
+                                        {{list.name}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{list.designation}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{list.contactNo}}
+                                    </span>
+                                </td>
+                                <td>
+                                    @if(list.status==1){
+                                    <span class="badge bg-success">
+                                        Active
+                                    </span>
+                                    }@else{
+                                    <span class="badge bg-danger">
+                                        Inactive
+                                    </span>
+                                    }
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- ================= Customers ================= -->
+        <div class="col-lg-6">
+            <div class="card dashboard-table-card h-100">
+                <div class="card-header dashboard-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 id="customer-dtl">
+                            <i class="fa-solid fa-user-group text-secondary me-2"></i>
+                            Recently Added Customers
+                        </h5>
+                        <a routerLink="/customer" class="btn btn-outline-success btn-sm rounded-pill">
+                            <i class="fa-solid fa-eye me-1"></i>
+                            View All
+                        </a>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            @for(list of customerList; track list.id){
+                            <tr>
+                                <td>{{$index+1}}</td>
+                                <td>{{list.name}}</td>
+                                <td>{{list.contact}}</td>
+                                <td>
+                                    @if(list.status==1){
+                                    <span class="badge bg-success">
+                                        Active
+                                    </span>
+                                    }@else{
+                                    <span class="badge bg-danger">
+                                        Inactive
+                                    </span>
+                                    }
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ================= Projects ================= -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card dashboard-table-card">
+                <div class="card-header dashboard-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 id="project-dtl">
+                            <i class="fa-solid fa-diagram-project text-secondary me-2"></i>
+                            Recently Added Projects
+                        </h5>
+                        <a routerLink="/project" class="btn btn-outline-warning btn-sm rounded-pill">
+                            <i class="fa-solid fa-eye me-1"></i>
+                            View All
+                        </a>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Project Name</th>
+                                <th>Customer</th>
+                                <th>Company</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            @for(list of projectList; track list.id){
+                            <tr>
+                                <td>{{$index+1}}</td>
+                                <td>{{list.projectName}}</td>
+                                <td>{{list.customer?.name || 'N/A'}}</td>
+                                <td>{{list.customer?.companyName || 'N/A'}}</td>
+                                <td>
+                                    @if(list.status=="ACTIVE"){
+                                    <span class="badge bg-success">
+                                        Active
+                                    </span>
+                                    }@else if(list.status=="INACTIVE"){
+                                    <span class="badge bg-danger">
+                                        Inactive
+                                    </span>
+                                    }@else {
+                                    <span class="badge bg-primary">
+                                        Completed
+                                    </span>
+                                    }
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="role === 'ROLE_USER'" class="d-flex justify-content-center min-vh-80 " style="margin-top: 200px;">
+
+    <div
+        style="background-color: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; padding: 40px 30px; text-align: center; max-width: 600px; margin: 0 auto; box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); font-family: 'Orbitron', 'Inter', sans-serif;">
+
+        <!-- Subtle Tag -->
+        <span
+            style="display: inline-block; font-size: 11px; font-weight: 700; color: #2563eb; background-color: #eff6ff; padding: 6px 16px; border-radius: 20px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; font-family: 'Orbitron', 'Inter', sans-serif;">
+            Official Client Portal
+        </span>
+
+        <!-- Main Title -->
+        <h1
+            style="font-size: 24px; font-weight: 700; color: #1e293b; margin: 0; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.4; font-family: 'Orbitron', 'Inter', sans-serif;">
+            Welcome to <span style="color: #2563eb; font-family: 'Orbitron', 'Inter', sans-serif;">Webzent</span> CLIENT
+            Portal
+        </h1>
+    </div>
+
+</div>

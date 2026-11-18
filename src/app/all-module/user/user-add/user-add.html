@@ -1,0 +1,230 @@
+<div class="container py-3">
+    <div class="card form-card">
+
+        <!-- Header -->
+        <div class="card-header card-header-purple d-flex align-items-center gap-2">
+            <div class="header-icon-box">
+                <!-- <i class="fa-solid" [ngClass]="user.id ? 'fa-user-pen' : 'fa-users'"></i> -->
+            </div>
+            <h5 class="mb-0 fw-bold fs-6">
+                {{ user.id ? 'Update User' : 'Add User' }}
+            </h5>
+        </div>
+
+        <!-- Form Body -->
+        <div class="card-body p-4">
+            <form #userForm="ngForm">
+                <div class="row g-3">
+
+                    <!-- Name -->
+                    <div class="col-md-6">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-blue"><i class="fa-solid fa-user"></i></div>
+                            <label class="form-label-text">Name<span class="text-danger"> *</span></label>
+                        </div>
+                        <input 
+                            type="text" 
+                            class="form-control custom-input" name="name" 
+                            [(ngModel)]="user.name"
+                            #name="ngModel" 
+                            required 
+                            minlength="2" 
+                            maxlength="50" 
+                            placeholder="Enter user's name">
+
+                        <small class="text-danger" *ngIf="backendErrors['name']">
+                            {{backendErrors['name']}}
+                        </small>
+
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-md-6">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-cyan"><i class="fa-solid fa-envelope"></i></div>
+                            <label class="form-label-text">Email<span class="text-danger"> *</span></label>
+                        </div>
+                        <input type="email" class="form-control custom-input" name="email" [(ngModel)]="user.email"
+                            #email="ngModel" required email placeholder="Enter email" maxlength="50">
+
+                        <small class="text-danger" *ngIf="backendErrors['email']">
+                            {{backendErrors['email']}}
+                        </small>
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="col-md-6">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-green"><i class="fa-solid fa-phone"></i></div>
+                            <label class="form-label-text">Contact Number<span class="text-danger"> *</span></label>
+                        </div>
+                        <input type="tel" class="form-control custom-input" name="contactNo"
+                            [(ngModel)]="user.contactNo" #contactNo="ngModel" required maxlength="15"
+                            inputmode="numeric" placeholder="Enter contact number">
+
+                        <small class="text-danger" *ngIf="backendErrors['contactNo']">
+                            {{backendErrors['contactNo']}}
+                        </small>
+
+                    </div>
+
+                    <!-- Employee ID -->
+                    <div class="col-md-6">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-orange"><i class="fa-solid fa-id-badge"></i></div>
+                            <label class="form-label-text">Employee ID<span class="text-danger"> *</span></label>
+                        </div>
+                        <input type="text" class="form-control custom-input" name="employeeId"
+                            [(ngModel)]="user.employeeId" #employeeId="ngModel" placeholder="Enter Employee ID"
+                            minlength="4" maxlength="20" required>
+
+                        <small class="text-danger" *ngIf="backendErrors['employeeId']">
+                            {{backendErrors['employeeId']}}
+                        </small>
+                    </div>
+
+                    <!-- Designation -->
+                    <div class="col-md-6">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-amber"><i class="fa-solid fa-briefcase"></i></div>
+                            <label class="form-label-text">Designation<span class="text-danger"> *</span></label>
+                        </div>
+                        <input type="text" class="form-control custom-input" name="designation"
+                            [(ngModel)]="user.designation" #designation="ngModel" required
+                            placeholder="Enter designation" minlength="2" maxlength="50">
+
+                        <small class="text-danger" *ngIf="backendErrors['designation']">
+                            {{backendErrors['designation']}}
+                        </small>
+                    </div>
+
+                    <!-- Status -->
+                    <!-- <p>*ngIf="user.id>0 && user.roles?.length && user.roles[0]?.name !== 'ROLE_ADMIN'"</p> -->
+
+                    <div class="col-md-6" *ngIf="user.roles[0]?.name !== 'ROLE_ADMIN'">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-teal"><i class="fa-solid fa-circle-check"></i></div>
+                            <label class="form-label-text">Status</label>
+                        </div>
+                        <select class="form-select custom-select" name="status" [(ngModel)]="user.status"
+                            #status="ngModel" required>
+                            <option [ngValue]="1" selected>Active</option>
+                            <option [ngValue]="0">Inactive</option>
+                        </select>
+                    </div>
+
+                    <!-- Password Fields (Only while Add) -->
+                    @if(user.id==0){
+                    <div class="col-md-6">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-red"><i class="fa-solid fa-lock"></i></div>
+                            <label class="form-label-text">Password<span class="text-danger"> *</span></label>
+                        </div>
+                        <div class="input-group">
+                            <input [type]="showPassword ? 'text' : 'password'" class="form-control custom-input"
+                                name="password" [(ngModel)]="user.password" #password="ngModel" required minlength="6"
+                                maxlength="100" placeholder="Enter password">
+                            <button class="btn eye-btn" type="button" (click)="showPassword = !showPassword">
+                                <i class="fa-solid" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </button>
+                        </div>
+
+                        <small class="text-danger" *ngIf="backendErrors['password']">
+                            {{backendErrors['password']}}
+                        </small>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-purple"><i class="fa-solid fa-key"></i></div>
+                            <label class="form-label-text">Confirm Password</label>
+                        </div>
+                        <div class="input-group">
+                            <input [type]="showConfirmPassword ? 'text' : 'password'" class="form-control custom-input"
+                                name="confirmPassword" [(ngModel)]="confirmPassword" #confirmPass="ngModel" required
+                                minlength="6" maxlength="100" placeholder="Confirm password">
+                            <button class="btn eye-btn" type="button"
+                                (click)="showConfirmPassword = !showConfirmPassword">
+                                <i class="fa-solid" [ngClass]="showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </button>
+                        </div>
+
+                        <small class="text-danger mt-1 d-block"
+                            *ngIf="confirmPass.errors?.['required'] && confirmPass.touched">
+                            Confirm Password is required.
+                        </small>
+                        <small class="text-danger mt-1 d-block"
+                            *ngIf="confirmPassword && user.password !== confirmPassword">
+                            Password and Confirm Password do not match.
+                        </small>
+                    </div>
+                    }
+                    @else {
+
+                    <div class="col-md-6">
+                        <div class="label-container">
+                            <div class="label-icon bg-icon-red"><i class="fa-solid fa-lock"></i></div>
+                            <label class="form-label-text">Update Password</label>
+                        </div>
+                        <div class="input-group">
+                            <input [type]="showConfirmPassword ? 'text' : 'password'" class="form-control custom-input"
+                                name="confirmPassword" [(ngModel)]="confirmPassword" #confirmPass="ngModel"
+                                minlength="6" maxlength="100" placeholder="Update password">
+                            <button class="btn eye-btn" type="button"
+                                (click)="showConfirmPassword = !showConfirmPassword">
+                                <i class="fa-solid" [ngClass]="showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </button>
+
+                            <small class="text-danger mt-1 d-block"
+                                *ngIf="confirmPass.errors?.['minlength'] && confirmPass.touched">
+                                Password must be at least 6 characters.
+                            </small>
+                        </div>
+                    </div>
+
+                    }
+
+                    <!-- Assign Roles Section inside Card Body -->
+                    <div class="col-12 mt-4 pt-3 border-top">
+                        <label class="form-label-text fw-bold mb-2 d-block fs-6 text-dark">
+                            <div class="project12"> Project Assign</div>
+
+                        </label>
+                        <dual-list [source]="availableProject" [(destination)]="selectedProject"
+                            [display]="'projectName'" [key]="'id'">
+                        </dual-list>
+                    </div>
+
+                </div>
+
+                <div class="project12 mt-3" style="font-weight:bold;"> Project Permission</div>
+
+                <div class="mt-2 d-flex justify-content-center">
+                    <label class="mt-2">
+                        <input type="checkbox" name="isAllowedCreateProject" [(ngModel)]="user.isAllowedCreateProject">
+                        Allow User to create project
+                    </label>
+                </div>
+
+                <!-- Footer Buttons -->
+                <div class="d-flex justify-content-between align-items-center pt-4 mt-3 border-top">
+                    <button type="button" class="back-button" (click)="back()">
+                        <span>←</span>
+                        Back
+                    </button>
+
+                    @if(user.id){
+                    <button type="button" class="btn btn-submit" (click)="updateUser()">
+
+                        <i class="bi bi-pencil-square me-1"></i> Update User
+                    </button>
+                    } @else {
+                    <button type="button" class="btn btn-submit" (click)="saveUser()">
+                        <i class="fa-solid fa-circle-plus me-1"></i> Add User
+                    </button>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

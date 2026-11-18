@@ -1,0 +1,156 @@
+<div class="customer-wrapper">
+    <div class="card customer-card">
+        <!-- Header -->
+        <div class="card-header customer-header">
+            <h4 style="color: black; font-weight: 600; font-size: 14px;">
+                {{ (customer.id ?? 0) > 0 ? 'Update Customer' : 'Add Customer' }}
+            </h4>
+        </div>
+        <div class="card-body">
+            <form #customerForm="ngForm">
+                <div class="row">
+                    <!-- Customer Name -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <label class="form-label">
+                            <i class="fa-solid fa-user"></i>
+                            Customer Name<span class="text-danger"> *</span>
+                        </label>
+
+                        <input type="text" class="form-control" name="name" [(ngModel)]="customer.name" #name="ngModel"
+                            required minlength="3" maxlength="50" placeholder="Enter customer name">
+
+                        <small class="text-danger" *ngIf="backendErrors['name']">
+                            {{backendErrors['name']}}
+                        </small>
+
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <label class="form-label">
+                            <i class="fa-solid fa-envelope"></i>
+                            Email<span class="text-danger"> *</span>
+                        </label>
+                        <input type="email" class="form-control" name="email" [(ngModel)]="customer.email"
+                            #email="ngModel" required placeholder="Enter email">
+
+                        <small class="text-danger" *ngIf="backendErrors['email']">
+                            {{backendErrors['email']}}
+                        </small>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <label class="form-label">
+                            <i class="fa-solid fa-phone"></i>
+                            Contact Number<span class="text-danger"> *</span>
+                        </label>
+                        <input type="tel" class="form-control" name="contact" [(ngModel)]="customer.contact"
+                            #contact="ngModel" required maxlength="15" inputmode="numeric"
+                            placeholder="Enter contact number">
+
+                        <small class="text-danger" *ngIf="backendErrors['contact']">
+                            {{backendErrors['contact']}}
+                        </small>
+
+                    </div>
+                    <!-- Company -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <label class="form-label">
+                            <i class="fa-solid fa-building"></i>
+                            Company Name<span class="text-danger"> *</span>
+                        </label>
+                        <input type="text" class="form-control" name="companyName" [(ngModel)]="customer.companyName"
+                            #companyName="ngModel" required minlength="2" maxlength="100"
+                            placeholder="Enter company name">
+
+                        <small class="text-danger" *ngIf="backendErrors['companyName']">
+                            {{backendErrors['companyName']}}
+                        </small>
+
+                    </div>
+
+                    <!-- GST -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <label class="form-label">
+                            <i class="fa-solid fa-file-invoice"></i>
+                            GST No. / Tax Id
+                        </label>
+                        <input type="text" class="form-control" name="gstNo" [(ngModel)]="customer.gstNo"
+                            placeholder="Enter GST Number">
+                    </div>
+
+                    <!-- Status -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <label class="form-label">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Status
+                        </label>
+                        <select class="form-select" name="status" [(ngModel)]="customer.status">
+                            <!-- <option [ngValue]="null" selected disabled>Select</option> -->
+                            <option [ngValue]="1" selected>Active</option>
+                            <option [ngValue]="0">Inactive</option>
+                        </select>
+                    </div>
+                    <!-- Address -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <label class="form-label">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Address
+                        </label>
+                        <textarea rows="4" class="form-control" name="address" [(ngModel)]="customer.address"
+                            #address="ngModel" (ngModelChange)="syncBillingAddress()" placeholder="Enter address">
+                        </textarea>
+
+                    </div>
+
+                    <!-- Billing Address -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+
+                            <label class="form-label mb-0">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                Billing Address
+                            </label>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="sameAddress"
+                                    [(ngModel)]="sameAddress" name="sameAddress" (change)="copyAddress()">
+
+                                <label class="form-check-label" for="sameAddress">
+                                    Same as Address
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <textarea rows="4" class="form-control" name="billingAddress"
+                            [(ngModel)]="customer.billingAddress" #billingAddress="ngModel" [readonly]="sameAddress"
+                            placeholder="Enter billing address">
+                        </textarea>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <button type="button" class="back-button" (click)="back()">
+                        <span>←</span>
+                        Back
+                    </button>
+                    @if((customer.id ?? 0) > 0){
+                    <button type="button" class="btn btn-success" (click)="updateCustomer()" style="color: black;">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        Update Customer
+                    </button>
+                    } @else {
+                    <button type="button" class="btn btn-success" (click)="saveCustomer()" style="color: black;">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        Add Customer
+                    </button>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

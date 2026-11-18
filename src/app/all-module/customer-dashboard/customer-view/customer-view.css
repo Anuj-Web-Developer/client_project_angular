@@ -1,0 +1,138 @@
+/* ========================================================
+   1. Main Container & Card Layout
+   ======================================================== */
+.project-card-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+ 
+/* Custom Header Gradient Banner */
+.project-header-bg {
+  background: linear-gradient(135deg, #11bdac 0%, #10342d 100%);
+}
+ 
+/* Custom Status Spinner Dot Size */
+.status-spinner-dot {
+  width: 8px !important;
+  height: 8px !important;
+}
+ 
+/* Primary Theme Utility Colors */
+.text-theme-primary {
+  color: #5F9EA0 !important;
+}
+ 
+.bg-theme-blur {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+ 
+/* ========================================================
+   2. Connected Channels Section (Cards & Layout Fixes)
+   ======================================================== */
+ 
+/* Individual Channel Card Styling */
+.channel-card {
+  min-height: 68px !important; /* Proper spacious height */
+  /* transition: all 0.2s ease-in-out; */
+}
+ 
+.channel-card:hover {
+  border-color: #5F9EA0 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.08) !important;
+}
+ 
+/* Icon Container Box (Bada aur Proper Alignment) */
+.social-icon-box {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  flex-shrink: 0 !important;
+  position: static !important; /* Flexbox alignment ke liye */
+}
+ 
+/* FontAwesome Icon Styling Inside Box */
+.social-icon-box i {
+  font-size: 18px !important;
+  line-height: 1 !important;
+  color: #ffffff !important;
+}
+ 
+/* Action Link Button (Right side arrow button) */
+.action-link-btn {
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  /* transition: all 0.2s ease; */
+}
+ 
+.action-link-btn:hover {
+  background-color: #5F9EA0 !important;
+  color: #ffffff !important;
+  border-color: #5F9EA0 !important;
+}
+ 
+.action-link-btn:hover i {
+  color: #ffffff !important;
+}
+ 
+/* ========================================================
+   3. Brand Colors (With Forced White Icons)
+   ======================================================== */
+.bg-brand-youtube   { background-color: #ff0000 !important; }
+.bg-brand-facebook  { background-color: #1877f2 !important; }
+.bg-brand-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important; }
+.bg-brand-linkedin  { background-color: #0a66c2 !important; }
+.bg-brand-twitter   { background-color: #000000 !important; }
+.bg-brand-other     { background-color: #6c757d !important; }
+ 
+/* Force icons inside brand boxes to stay white */
+.bg-brand-youtube i,
+.bg-brand-facebook i,
+.bg-brand-instagram i,
+.bg-brand-linkedin i,
+.bg-brand-twitter i,
+.bg-brand-other i {
+  color: #ffffff !important;
+}
+ 
+/* ========================================================
+   4. Typography & Truncation Helpers
+   ======================================================== */
+.meta-label-text {
+  font-size: 0.62rem;
+  letter-spacing: 0.5px;
+}
+ 
+.header-label-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.8px;
+}
+ 
+.section-title-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.6px;
+}
+ 
+.icon-xs {
+  font-size: 0.75rem;
+}
+ 
+/* Text Container Overflows */
+.text-container-truncate {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+}
+ 

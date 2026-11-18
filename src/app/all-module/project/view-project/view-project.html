@@ -1,0 +1,362 @@
+<div class="customer-page">
+    <!-- ================= HEADER ================= -->
+    <div class="page-header">
+        <button type="button" class="back-button" (click)="back()">
+            <span>←</span>
+            Back
+        </button>
+        <div class="header-actions">
+            <button type="button" class="reminder-btn" (click)="sendReminder()">
+                <i class="bi bi-bell"></i>
+                <span>Send Reminder</span>
+            </button>
+        </div>
+    </div>
+    <!-- ================= CUSTOMER CARD ================= -->
+    <div class="customer-card">
+        <!-- ================= LEFT SIDEBAR ================= -->
+        <aside class="customer-sidebar">
+            <!-- ================= PROFILE ================= -->
+            <div class="profile-section">
+                <div class="profile-avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="profile-name">
+                    <h2>{{project.customer.name}}</h2>
+                    <p>{{project.projectName}}</p>
+                </div>
+                <div class="profile-divider">
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+            <!-- ================= CONTACT INFORMATION ================= -->
+            <div class="contact-list">
+
+                <!-- Company Name -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <div class="contact-content">
+                        <span>Company Name</span>
+                        <strong>{{project.customer.companyName}}</strong>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <div class="contact-content">
+                        <span>EMAIL</span>
+                        <strong>{{project.customer.email}}</strong>
+                    </div>
+                </div>
+                <!-- Phone -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="bi bi-telephone"></i>
+                    </div>
+                    <div class="contact-content">
+                        <span>PHONE</span>
+                        <strong>{{project.customer.contact}}</strong>
+                    </div>
+                </div>
+                <!-- Timeline -->
+                <div class="contact-item" style="display: flex; flex-direction: column; gap: 15px;">
+
+                    <!-- Start Date -->
+                    <div style="display: flex; align-items: center;">
+                        <div class="contact-icon" style="margin-right: 10px;">
+                            <i class="bi bi-clock"></i>
+                        </div>
+
+                        <div class="contact-content">
+                            <span style="display: block;">Start Date</span>
+                            <strong style="display: block;">
+                                {{ project.projectStartDate | date:'dd-MM-yyyy' }}
+                            </strong>
+                        </div>
+                    </div>
+
+                    <!-- Deliver Date -->
+                    <div style="display: flex; align-items: center;">
+                        <div class="contact-icon" style="margin-right: 10px;">
+                            <i class="bi bi-clock"></i>
+                        </div>
+
+                        <div class="contact-content">
+                            <span style="display: block;">Deliver Date</span>
+                            <strong style="display: block;">
+                                {{ project.projectEndDate | date:'dd-MM-yyyy' }}
+                            </strong>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ================= SIDEBAR ACTIONS ================= -->
+            <!-- <div class="sidebar-actions" *ngIf="project.attachment.id !== null && project.attachment.id !== 0 ">
+                <button type="button" class="sidebar-btn" (click)="downloadAttachment()">
+                    <i class="bi bi-paperclip"></i>
+                    <span>Download Attachment</span>
+                </button>
+            </div> -->
+        </aside>
+        <!-- ================= RIGHT CONTENT ================= -->
+        <main class="customer-content">
+            <!-- ================= PROJECT DETAILS ================= -->
+            <section class="content-section project-section">
+                <div class="section-heading">
+                    <div class="section-icon">
+                        <i class="bi bi-briefcase"></i>
+                    </div>
+                    <h3>Project Details</h3>
+                </div>
+
+                <div class="active-badge">
+
+                    @if(project?.status == 'ACTIVE') {
+                    <!-- <span class="status-dot active-dot"></span> -->
+                    <span class="badge bg-success">
+                        {{ project?.status }}
+                    </span>
+                    }
+                    @else if(project?.status == 'INACTIVE') {
+                    <!-- <span class="status-dot inactive-dot"></span> -->
+                    <span class="badge bg-danger">
+                        {{ project?.status }}
+                    </span>
+                    }
+                    @else {
+                    <!-- <span class="status-dot other-dot"></span> -->
+                    <span class="badge bg-primary">
+                        {{ project?.status }}
+                    </span>
+                    }
+
+                </div>
+
+                <div class="project-grid">
+                    <!-- Project -->
+                    <div class="info-block">
+                        <span>PROJECT</span>
+                        <strong>{{project.projectName}}</strong>
+                    </div>
+                    <!-- Website -->
+                    <div class="info-block">
+                        <span>WEBSITE</span>
+                        @if(project.projectWebsite.length>0){
+                        <a href={{project.projectWebsite}} target="_blank" rel="noopener noreferrer">
+                            {{project.projectWebsite}}
+                        </a>
+                        }@else {
+                        <span>N/A</span>
+                        }
+
+                    </div>
+                    <!-- Social Media -->
+                    <div class="info-block">
+                        <span>SOCIAL MEDIA</span>
+                        <strong class="muted">{{project.socialMedia || "N/A"}}</strong>
+                    </div>
+                </div>
+                <!-- Description -->
+                <div class="description">
+                    <span>DESCRIPTION</span>
+                    <div class="description-box">
+                        {{project.description}}
+                    </div>
+                </div>
+            </section>
+            <!-- ================= LOGIN INFORMATION ================= -->
+            <section class="content-section login-section">
+                <div class="section-heading">
+                    <div class="section-icon">
+                        <i class="bi bi-lock"></i>
+                    </div>
+                    <h3>Login Information</h3>
+                </div>
+                <div class="credential-list">
+                    <!-- URL -->
+                    <div class="credential-row">
+                        <div class="credential-label">
+                            URL
+                        </div>
+                        <a href={{project.loginUrl}} target="_blank" rel="noopener noreferrer" class="credential-value">
+                            {{project.loginUrl}}
+                        </a>
+                        <div class="credential-actions">
+                            <a href={{project.loginUrl}} target="_blank" rel="noopener noreferrer"
+                                class="credential-value">
+                                <i class="bi bi-rocket-takeoff"></i>
+                            </a>
+
+                            <button type="button" class="copy-btn" title="Copy URL"
+                                (click)="copyText(project.loginUrl)">
+                                <i class="bi bi-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Username -->
+                    <div class="credential-row">
+                        <div class="credential-label">
+                            Username
+                        </div>
+                        <div class="credential-value">
+                            {{project.username}}
+                        </div>
+                        <button type="button" class="copy-btn" title="Copy Username"
+                            (click)="copyText(project.username)">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                    </div>
+                    <!-- Password -->
+                    <div class="credential-row">
+                        <div class="credential-label">
+                            Password
+                        </div>
+                        <div class="credential-value password">
+                            {{getHiddenPassword(project.password)}}
+                        </div>
+                        <button type="button" class="copy-btn" title="Copy Password"
+                            (click)="copyText(project.password)">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="button" class="btn  btn-sm d-inline-flex align-items-center gap-2"
+                            (click)="downloadAttachment('loginAttachment')"style="background: #80cbf3; color: black;">
+                            <i class="bi bi-download"></i>
+                            Download
+                        </button>                      
+                    </div>
+                    <small class="text-muted">.doc, .xls, .xlsx</small>
+                </div>
+            </section>
+            <!-- ================= SERVER INFORMATION ================= -->
+            <section class="content-section server-section">
+
+                <div class="section-heading">
+                    <div class="section-icon">
+                        <i class="bi bi-server"></i>
+                    </div>
+                    <h3>Server Information</h3>
+                </div>
+
+                @if(project.serverUrl.length>0){
+                <div class="server-grid">
+
+                    <!-- ================= SERVER URL ================= -->
+                    <div class="server-item">
+
+                        <span>SERVER URL</span>
+
+                        <div class="server-value">
+                            @if(project.serverUrl.length>0) {
+                            <a href={{project.serverUrl}} target="_blank" rel="noopener noreferrer"
+                                class="credential-value">
+                                {{project.serverUrl}}
+                            </a>
+                            }@else {
+                            <span>N/A</span>
+                            }
+
+                            <div class="credential-actions">
+
+                                <!-- Rocket -->
+                                <a href={{project.serverUrl}} target="_blank" rel="noopener noreferrer"
+                                    title="Open Server URL">
+                                    <i class="bi bi-rocket-takeoff"></i>
+                                </a>
+
+                                <!-- Copy -->
+                                <button type="button" class="copy-btn" title="Copy Server URL"
+                                    (click)="copyText(project.serverUrl)">
+                                    <i class="bi bi-copy"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= USERNAME ================= -->
+                    <div class="server-item">
+
+                        <span>USERNAME</span>
+
+                        <div class="server-value">
+
+                            <strong>
+                                {{project.serverUsername || 'N/A'}}
+                            </strong>
+
+                            <button type="button" class="copy-btn" title="Copy Server Username"
+                                (click)="copyText(project.serverUsername)">
+                                <i class="bi bi-copy"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= PASSWORD ================= -->
+                    <div class="server-item">
+
+                        <span>PASSWORD</span>
+
+                        <div class="server-value">
+
+                            <strong class="password">
+                                {{getHiddenPassword(project.serverPassword) || 'N/A'}}
+                            </strong>
+
+                            <button type="button" class="copy-btn" title="Copy Server Password"
+                                (click)="copyText(project.serverUsername)">
+                                <i class="bi bi-copy"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                }@else {
+                <div>
+                    <span>N/A</span>
+                </div>
+                }
+
+                <div class="d-flex flex-wrap gap-4">
+
+                    <div class="d-flex flex-column align-items-start gap-1" >
+                        <button type="button" class="btn  btn-sm d-inline-flex align-items-center gap-2"
+                            (click)="downloadAttachment('serverAttachment1')"style="background: #80cbf3; color: black;">
+                            <i class="bi bi-download"></i>
+                            Download
+                        </button>
+                        <small class="text-muted">.doc, .xls, .xlsx</small>
+                    </div>
+                    <br>
+                    <div class="d-flex flex-column align-items-start gap-1">
+                        <button type="button" class="btn  btn-sm d-inline-flex align-items-center gap-2"
+                            (click)="downloadAttachment('serverAttachment2')" style="background: #80cbf3; color: black;">
+                            <i class="bi bi-download"></i>
+                            Download
+                        </button>
+                        <small class="text-muted">.ppm, .ppk</small>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+</div>

@@ -1,0 +1,259 @@
+
+<div class="container py-4 project-card-container">
+    <!-- Main Project Card -->
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden bg-white">
+        <!-- Header Banner -->
+        <div class="card-header border-0 py-3 px-3 px-sm-4 text-white project-header-bg">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="social-icon-box bg-white bg-opacity-25 shadow-sm bg-theme-blur">
+                        <i class="fa-solid fa-folder-closed fs-5 text-white"></i>
+                    </div>
+                    <div class="text-container-truncate">
+                        <span class="text-white-50 text-uppercase fw-semibold d-block header-label-text">Project
+                            Title</span>
+                        <h5 class="mb-0 fw-bold text-white fs-6 fs-sm-5 text-truncate">{{projectData.projectName}}</h5>
+                    </div>
+                </div>
+                <div class="flex-shrink-0">
+                    <span
+                        class="badge bg-white text-dark border-0 fs-7 px-3 py-2 rounded-pill shadow-sm fw-bold d-inline-flex align-items-center gap-2">
+                        <span class="spinner-grow spinner-grow-sm text-success status-spinner-dot" role="status"></span>
+                        {{projectData.status}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body p-3 p-sm-4 bg-light bg-opacity-50">
+            <!-- 1. Owner & Website -->
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                    <div class="p-3 bg-white rounded-3 border border-light-subtle shadow-sm h-100">
+                        <div class="d-flex justify-content-between align-items-center gap-2">
+                            <div class="text-container-truncate">
+                                <span class="text-uppercase text-muted fw-bold d-block mb-1 meta-label-text">
+                                    Username</span>
+                                <div class="fw-bold text-dark fs-6 text-truncate">{{projectData.username}}</div>
+                            </div>
+                            <div class="social-icon-box bg-light border">
+                                <i class="fa-solid fa-user-circle fs-5 text-theme-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-3 bg-white rounded-3 border border-light-subtle shadow-sm h-100">
+                        <div class="d-flex justify-content-between align-items-center gap-2">
+                            <div class="text-container-truncate">
+                                <span class="text-uppercase text-muted fw-bold d-block mb-1 meta-label-text">Project
+                                    Website</span>
+                                <a href="" target="_blank"
+                                    class="fw-bold text-decoration-none text-truncate d-block fs-6 text-theme-primary">
+                                </a>
+                            </div>
+                            <button type="button"
+                                class="btn btn-sm btn-light border action-link-btn text-muted rounded-2"
+                                title="Copy Link" onclick="navigator.clipboard.writeText('https://www.webzent.com')">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 2. Start Date & End Date -->
+            <div class="p-3 bg-white rounded-3 border border-light-subtle shadow-sm mb-3">
+                <div class="row g-3 align-items-center text-start">
+                    <div class="col-6 col-md-4">
+                        <span class="text-uppercase text-muted fw-bold d-block mb-1 meta-label-text">Start Date</span>
+                        <span class="fw-semibold text-dark small text-truncate d-block">
+                            <i class="fa-regular fa-calendar me-1 text-muted"></i> {{projectData.projectStardDate}}
+                        </span>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <span class="text-uppercase text-muted fw-bold d-block mb-1 meta-label-text">End Date</span>
+                        <span class="fw-semibold text-dark small text-truncate d-block">
+                            <i class="fa-regular fa-calendar-check me-1 text-muted"></i> {{projectData.projectEndDate}}
+                        </span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <span class="text-uppercase text-muted fw-bold d-block mb-1 meta-label-text">Status</span>
+                        <span
+                            class="badge bg-success-subtle text-success border border-success-subtle rounded-2 px-2.5 py-1.5 font-semibold">
+                            <i class="fa-solid fa-arrows-spin me-1"></i> Yet to implement
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- 3. Description Box -->
+            <div class="p-3 bg-white rounded-3 border border-light-subtle shadow-sm mb-3">
+                <span class="text-uppercase text-muted fw-bold d-block mb-2 meta-label-text">
+                    <i class="fa-solid fa-align-left me-1 text-theme-primary"></i> Description
+                </span>
+                <p class="text-secondary small mb-0 lh-base text-break">
+                    {{projectData.description}}
+                </p>
+            </div>
+            <!-- 4. Social Media Networks Grid -->
+            <div class="mt-4">
+                <h6
+                    class="text-uppercase fw-bold mb-3 text-secondary d-flex align-items-center gap-2 section-title-text">
+                    <i class="fa-solid fa-share-nodes me-1 text-theme-primary"></i> Connected Channels
+                </h6>
+                <div class="row g-3">
+                    <!-- YouTube -->
+                    <div class="col-12 col-md-6">
+                        <div
+                            class="channel-card p-3 bg-white rounded-3 border border-light-subtle shadow-sm d-flex align-items-center justify-content-between gap-3">
+                            <div class="d-flex align-items-center gap-3 text-container-truncate">
+                                <div class="social-icon-box bg-brand-youtube">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </div>
+                                <div class="text-container-truncate">
+                                    <span class="text-muted d-block fw-semibold mb-1"
+                                        style="font-size: 0.65rem; letter-spacing: 0.5px;">YOUTUBE</span>
+                                    <a class="text-dark fw-bold text-decoration-none text-truncate d-block fs-6">
+                                        {{projectData.youtube}}
+                                    </a>
+                                </div>
+                            </div>
+                            <a class="btn btn-light border action-link-btn rounded-2 text-muted" title="Open Link">
+                                <i class="fa-solid fa-arrow-up-right-from-square icon-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Facebook -->
+                    <div class="col-12 col-md-6">
+                        <div
+                            class="channel-card p-3 bg-white rounded-3 border border-light-subtle shadow-sm d-flex align-items-center justify-content-between gap-3">
+                            <div class="d-flex align-items-center gap-3 text-container-truncate">
+                                <div class="social-icon-box bg-brand-facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <div class="text-container-truncate">
+                                    <span class="text-muted d-block fw-semibold mb-1"
+                                        style="font-size: 0.65rem; letter-spacing: 0.5px;">FACEBOOK</span>
+                                    <a class="text-dark fw-bold text-decoration-none text-truncate d-block fs-6">
+                                        {{projectData.facebook}}
+                                    </a>
+                                </div>
+                            </div>
+                            <a class="btn btn-light border action-link-btn rounded-2 text-muted" title="Open Link">
+                                <i class="fa-solid fa-arrow-up-right-from-square icon-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Instagram -->
+                    <div class="col-12 col-md-6">
+                        <div
+                            class="channel-card p-3 bg-white rounded-3 border border-light-subtle shadow-sm d-flex align-items-center justify-content-between gap-3">
+                            <div class="d-flex align-items-center gap-3 text-container-truncate">
+                                <div class="social-icon-box bg-brand-instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div class="text-container-truncate">
+                                    <span class="text-muted d-block fw-semibold mb-1"
+                                        style="font-size: 0.65rem; letter-spacing: 0.5px;">INSTAGRAM</span>
+                                    <a class="text-dark fw-bold text-decoration-none text-truncate d-block fs-6">
+                                        {{projectData.instagram}}
+                                    </a>
+                                </div>
+                            </div>
+                            <a class="btn btn-light border action-link-btn rounded-2 text-muted" title="Open Link">
+                                <i class="fa-solid fa-arrow-up-right-from-square icon-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- LinkedIn -->
+                    <div class="col-12 col-md-6">
+                        <div
+                            class="channel-card p-3 bg-white rounded-3 border border-light-subtle shadow-sm d-flex align-items-center justify-content-between gap-3">
+                            <div class="d-flex align-items-center gap-3 text-container-truncate">
+                                <div class="social-icon-box bg-brand-linkedin">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <div class="text-container-truncate">
+                                    <span class="text-muted d-block fw-semibold mb-1"
+                                        style="font-size: 0.65rem; letter-spacing: 0.5px;">LINKEDIN</span>
+
+                                    <a class="text-dark fw-bold text-decoration-none text-truncate d-block fs-6">
+                                        {{projectData.linkedIn}}
+                                    </a>
+                                </div>
+                            </div>
+                            <a 
+                                class="btn btn-light border action-link-btn rounded-2 text-muted" title="Open Link">
+                                <i class="fa-solid fa-arrow-up-right-from-square icon-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- X (Twitter) -->
+                    <div class="col-12 col-md-6">
+                        <div
+                            class="channel-card p-3 bg-white rounded-3 border border-light-subtle shadow-sm d-flex align-items-center justify-content-between gap-3">
+                            <div class="d-flex align-items-center gap-3 text-container-truncate">
+                                <div class="social-icon-box bg-brand-twitter">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                </div>
+                                <div class="text-container-truncate">
+                                    <span class="text-muted d-block fw-semibold mb-1"
+                                        style="font-size: 0.65rem; letter-spacing: 0.5px;">X (TWITTER)</span>
+                                    <a 
+                                        class="text-dark fw-bold text-decoration-none text-truncate d-block fs-6">
+                                        {{projectData.x_com}}
+                                    </a>
+                                </div>
+                            </div>
+                            <a 
+                                class="btn btn-light border action-link-btn rounded-2 text-muted" title="Open Link">
+                                <i class="fa-solid fa-arrow-up-right-from-square icon-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Others -->
+                    <div class="col-12 col-md-6">
+                        <div
+                            class="channel-card p-3 bg-white rounded-3 border border-light-subtle shadow-sm d-flex align-items-center justify-content-between gap-3">
+                            <div class="d-flex align-items-center gap-3 text-container-truncate">
+                                <div class="social-icon-box bg-brand-other">
+                                    <i class="fa-solid fa-link"></i>
+                                </div>
+                                <div class="text-container-truncate">
+                                    <span class="text-muted d-block fw-semibold mb-1"
+                                        style="font-size: 0.65rem; letter-spacing: 0.5px;">OTHERS</span>
+                                    <a 
+                                        class="text-dark fw-bold text-decoration-none text-truncate d-block fs-6">
+                                        {{projectData.others}}
+                                    </a>
+                                </div>
+                            </div>
+                            <a 
+                                class="btn btn-light border action-link-btn rounded-2 text-muted" title="Open Link">
+                                <i class="fa-solid fa-arrow-up-right-from-square icon-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card Footer (Back Button + View & Download Attachment) -->
+            <div class="card-footer bg-white border-top py-3 px-3 px-sm-4">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                    <!-- Back Button Moved Below -->
+                    <button type="button" onclick="history.back()"
+                        class="btn btn-outline-secondary btn-sm px-3 fw-semibold rounded-2 d-inline-flex align-items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back</span>
+                    </button>
+                    <!-- Right Side Actions: Attachment Options -->
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <!-- View Attachment -->
+                        <a 
+                            class="btn btn-sm btn-outline-primary fw-semibold rounded-2 px-3 d-inline-flex align-items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>View Attachment</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

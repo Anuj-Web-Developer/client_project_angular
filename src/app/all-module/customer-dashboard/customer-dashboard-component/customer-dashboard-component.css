@@ -1,0 +1,582 @@
+ /*==================================================
+                    HEADER
+==================================================*/
+
+ .dashboard-header {
+     width: 100%;
+     height: 80px;
+     background: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 35px;
+     position: sticky;
+     top: 0;
+     z-index: 999;
+     border-bottom: 1px solid #E5E7EB;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+ }
+
+ /*==================================================
+                    LEFT
+==================================================*/
+
+ .header-left {
+     flex: 1;
+     display: flex;
+     align-items: center;
+ }
+
+ .header-logo {
+     width: 115px;
+     height: auto;
+     object-fit: contain;
+ }
+
+ /*==================================================
+                    CENTER
+==================================================*/
+
+ .welcome-text {
+     flex: 1;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 8px;
+ }
+
+ .welcome-label {
+     font-size: 18px;
+     font-weight: 700;
+     color: #2563EB;
+ }
+
+ .welcome-text h4 {
+     margin: 0;
+     font-size: 22px;
+     font-weight: 600;
+     color: navy;
+ }
+
+ /*==================================================
+                    RIGHT
+==================================================*/
+
+ .header-right {
+     flex: 1;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+ }
+
+ /*==================================================
+                PROFILE
+==================================================*/
+
+ .profile-toggle {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     color: inherit;
+     text-decoration: none;
+     cursor: pointer;
+ }
+
+ .profile-toggle::after {
+     color: #2563EB;
+     font-size: 13px;
+     margin-left: 6px;
+ }
+
+ /*==================================================
+                AVATAR
+==================================================*/
+
+ .profile-avatar {
+     width: 46px;
+     height: 46px;
+     border-radius: 50%;
+     background: navy;
+     color: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 18px;
+     font-weight: 600;
+     cursor: pointer;
+ }
+
+ /*==================================================
+                DROPDOWN
+==================================================*/
+
+ .dropdown-menu {
+     min-width: 180px;
+     padding: 8px;
+     border: none;
+     border-radius: 12px;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+ }
+
+ .dropdown-item {
+     padding: 10px 14px;
+     font-size: 14px;
+     border-radius: 8px;
+     cursor: pointer;
+ }
+
+ .dropdown-item.text-danger {
+     color: #DC3545;
+ }
+
+ /*==================================================
+                COMMON
+==================================================*/
+
+ * {
+     box-sizing: border-box;
+ }
+
+ button {
+     outline: none;
+ }
+
+ button:focus {
+     outline: none;
+     box-shadow: none;
+ }
+
+ /*==================================================
+                PROJECT CARD
+==================================================*/
+
+ .project-card {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     padding: 20px;
+ }
+
+ .project-box {
+     width: 100%;
+     max-width: 520px;
+     background: #fff;
+     border: 1px solid #E5E7EB;
+     border-top: 5px solid navy;
+     border-radius: 20px;
+     padding: 25px;
+     box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+ }
+
+ /*==================================================
+            PROJECT TITLE BUTTON
+==================================================*/
+
+ .project-title-btn {
+     width: 100%;
+     min-height: 55px;
+
+     border: none;
+     border-radius: 14px;
+
+     background: linear-gradient(90deg, navy, #1D4ED8);
+     color: #fff;
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 12px;
+
+     font-size: 24px;
+     font-weight: 700;
+
+     margin-bottom: 28px;
+
+     cursor: pointer;
+ }
+
+ .project-title-btn i {
+     font-size: 22px;
+ }
+
+ /*==================================================
+            PROJECT CONTENT
+==================================================*/
+
+ .project-box hr {
+     border: 0;
+     border-top: 1px solid #E5E7EB;
+     margin: 20px 0;
+ }
+
+ .project-box p {
+     margin: 0;
+ }
+
+ .project-box label {
+     margin: 0;
+     display: block;
+ }
+
+ /*==================================================
+            COMMON SPACING
+==================================================*/
+
+ .project-box .credential-row:last-child {
+     margin-bottom: 0;
+ }
+
+ /*==================================================
+            USERNAME / PASSWORD
+==================================================*/
+
+ .credential-row {
+     width: 100%;
+     margin-bottom: 20px;
+ }
+
+ .credential-label {
+     display: block;
+     margin-bottom: 8px;
+     font-size: 15px;
+     font-weight: 700;
+     color: #374151;
+ }
+
+ .credential-value {
+     width: 100%;
+     height: 47px;
+     background: #fff;
+     border: 1px solid #DCE3EA;
+     border-radius: 12px;
+     padding: 0 15px;
+
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ .credential-value span {
+     font-size: 15px;
+     font-weight: 500;
+     color: #1F2937;
+ }
+
+ /*==================================================
+                COPY BUTTON
+==================================================*/
+
+ .password-copy-btn {
+     width: 38px;
+     height: 38px;
+     border: 1px solid #D6DCE5;
+     border-radius: 10px;
+     background: #fff;
+     color: #1D4ED8;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+     cursor: pointer;
+ }
+
+ .password-copy-btn i {
+     font-size: 16px;
+ }
+
+ /*==================================================
+                FOOTER
+==================================================*/
+
+ .project-footer {
+     width: 100%;
+     margin-top: 20px;
+     padding-top: 18px;
+     border-top: 1px solid #E5E7EB;
+
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .status {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+
+     color: #16A34A;
+     font-size: 17px;
+     font-weight: 700;
+ }
+
+ .status::before {
+     content: "";
+     font-size: 12px;
+     color: #16A34A;
+ }
+
+ /*==================================================
+                EDIT BUTTON
+==================================================*/
+
+ .bi-btn {
+     height: 42px;
+     padding: 0 18px;
+
+     border: 1px solid #D6DCE5;
+     border-radius: 10px;
+
+     background: #fff;
+     color: #1D4ED8;
+
+     display: flex;
+     align-items: center;
+     gap: 8px;
+
+     font-size: 15px;
+     font-weight: 600;
+
+     cursor: pointer;
+ }
+
+ .bi-btn i {
+     font-size: 15px;
+ }
+
+ /*==================================================
+                RESPONSIVE
+==================================================*/
+
+ @media only screen and (max-width:768px) {
+
+     .project-card {
+         padding: 15px;
+     }
+
+     .project-box {
+         max-width: 100%;
+         padding: 18px;
+     }
+
+     .project-title-btn {
+         font-size: 20px;
+         min-height: 50px;
+     }
+
+     .credential-label {
+         font-size: 14px;
+     }
+
+     .credential-value {
+         height: 48px;
+         padding: 0 12px;
+     }
+
+     .credential-value span {
+         font-size: 14px;
+     }
+
+     .project-footer {
+         flex-direction: column;
+         gap: 12px;
+         align-items: stretch;
+     }
+
+     .status {
+         justify-content: center;
+     }
+
+     .bi-btn {
+         width: 100%;
+         justify-content: center;
+     }
+ }
+
+ @media only screen and (max-width:480px) {
+
+     .project-card {
+         display: flex;
+         flex-direction: row;
+         padding: 10px;
+     }
+
+     .project-box {
+         padding: 15px;
+         border-radius: 15px;
+     }
+
+     .project-title-btn {
+         font-size: 18px;
+     }
+
+     .credential-value {
+         height: 45px;
+     }
+
+     .credential-value span {
+         font-size: 13px;
+     }
+
+     .password-copy-btn {
+         width: 32px;
+         height: 32px;
+     }
+ }
+
+ /*==================================================
+                FINAL CLEANUP
+==================================================*/
+
+ /* Remove outline */
+
+ button {
+     outline: none;
+ }
+
+ button:focus {
+     outline: none;
+     box-shadow: none;
+ }
+
+ /* Universal Box Sizing */
+
+ *,
+ *::before,
+ *::after {
+     box-sizing: border-box;
+ }
+
+ /* Images */
+
+ img {
+     max-width: 100%;
+     display: block;
+ }
+
+ /* Links */
+
+ a {
+     text-decoration: none;
+     color: inherit;
+ }
+
+ /* Icons */
+
+ .fa-solid,
+ .fa-regular {
+     vertical-align: middle;
+ }
+
+ /* Text Overflow */
+
+ .credential-value span {
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+ }
+
+ /* Prevent Button Shrink */
+
+ .password-copy-btn,
+ .bi-btn {
+     flex-shrink: 0;
+ }
+
+ /* Footer Alignment */
+
+ .project-footer>* {
+     display: flex;
+     align-items: center;
+ }
+
+ /* Small Mobile */
+
+ @media (max-width:480px) {
+
+     .project-card {
+         margin: 20px auto;
+         padding: 0 10px;
+     }
+
+     .project-box {
+         width: 100%;
+         padding: 15px;
+         border-radius: 16px;
+     }
+
+     .project-title-btn {
+         height: 48px;
+         font-size: 18px;
+     }
+
+     .credential-label {
+         font-size: 13px;
+     }
+
+     .credential-value {
+         height: 45px;
+         padding: 0 12px;
+     }
+
+     .credential-value span {
+         font-size: 13px;
+     }
+
+     .password-copy-btn {
+         width: 32px;
+         height: 32px;
+     }
+
+     .password-copy-btn i {
+         font-size: 14px;
+     }
+
+     .status {
+         font-size: 15px;
+     }
+
+     .bi-btn {
+         height: 38px;
+         font-size: 14px;
+     }
+ }
+
+ input:focus {
+     border: none;
+     outline: none;
+     box-shadow: none;
+ }
+
+ #project-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    #project-card {
+        justify-content: space-around;
+    }
+}
+
+/* Tablets */
+@media (max-width: 991px) {
+    #project-card {
+        justify-content: center;
+        gap: 16px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    #project-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}

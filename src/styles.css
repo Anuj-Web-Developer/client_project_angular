@@ -1,0 +1,712 @@
+ 
+/* You can add global styles to this file, and also import other style files */
+/* ===========================
+   CARD
+=========================== */
+ 
+.card {
+    border-radius: 18px;
+    border: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+ 
+.card-header {
+    border-radius: 18px 18px 0 0 !important;
+    padding: 16px 20px;
+}
+ 
+/* ===========================
+   HEADER
+=========================== */
+ 
+.bg-primary {
+   /* background:linear-gradient(135deg,rgb(103, 103, 244)); */
+   background-color: #bfe9ff !important;
+    color: #fff !important;
+}
+ 
+/* ===========================
+   TABLE
+=========================== */
+ 
+.table {
+    border-radius: 10px;
+    overflow: auto;
+    margin-bottom: 0;
+}
+ 
+.table thead th {
+ 
+    color: black;
+    background: #F4F8FB;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 14px;
+    white-space: nowrap;
+}
+ 
+.table tbody td {
+    /* text-align: center; */
+    vertical-align: middle;
+    padding: 8px;
+    font-size: 14px;
+}
+ 
+.table-hover tbody tr:hover {
+background:#A9E1FA4D;
+    transition: .3s;
+}
+ 
+.table tbody tr:nth-child(even) {
+  background:#A9E1FA4D;
+}
+ 
+/* ===========================
+   BADGE
+=========================== */
+ 
+.badge {
+    font-size: 13px;
+    min-width: 85px;
+    padding: 7px 12px;
+}
+ 
+/* ===========================
+   BUTTON
+=========================== */
+ 
+.btn-outline-primary {
+    border-radius: 20px;
+    font-weight: 500;
+    transition: .3s;
+}
+ 
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
+ 
+#view {
+    text-decoration: none;
+}
+ 
+/* ===========================
+   TABLE RESPONSIVE
+=========================== */
+ 
+.table-responsive {
+    border-radius: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+ 
+/* ===========================
+   TABLET
+=========================== */
+ 
+@media (max-width: 992px) {
+ 
+    .card-header h4,
+    .card-header h5 {
+        font-size: 20px;
+    }
+ 
+    .table thead th,
+    .table tbody td {
+        font-size: 13px;
+        padding: 10px;
+    }
+ 
+    .btn {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+ 
+    .badge {
+        font-size: 12px;
+        min-width: 70px;
+    }
+}
+ 
+/* ===========================
+   MOBILE
+=========================== */
+ 
+@media (max-width: 768px) {
+ 
+    .card {
+        border-radius: 12px;
+    }
+ 
+    .card-header {
+        padding: 12px 15px;
+        text-align: center;
+    }
+ 
+    .card-header h4,
+    .card-header h5 {
+        font-size: 18px;
+        margin: 0;
+    }
+ 
+    .table {
+        min-width: 700px;
+    }
+ 
+    .table thead th,
+    .table tbody td {
+        font-size: 12px;
+        padding: 8px;
+    }
+ 
+    .btn {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+ 
+    .badge {
+        min-width: 60px;
+        font-size: 11px;
+    }
+}
+ 
+/* ===========================
+   SMALL MOBILE
+=========================== */
+ 
+@media (max-width: 576px) {
+ 
+    .card-header {
+        padding: 10px;
+    }
+ 
+    .card-header h4,
+    .card-header h5 {
+        font-size: 16px;
+    }
+ 
+    .table {
+        min-width: 650px;
+    }
+ 
+    .table thead th,
+    .table tbody td {
+        font-size: 11px;
+        padding: 7px;
+    }
+ 
+    .btn {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+ 
+    .badge {
+        font-size: 10px;
+        min-width: 55px;
+    }
+}
+ 
+ 
+ 
+ 
+ 
+ /***************************Customer and Admin profile********************************/
+ 
+ /* Body Background */
+body {
+    background-color: #f1f5f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #334155;
+}
+ 
+/* Profile Main Card Container */
+.profile-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    max-width: 680px; /* Perfectly sized width */
+    width: 100%;
+}
+ 
+/* Header Banner (#5F9EA0 / CadetBlue) */
+.profile-header-banner {
+    background: #bfe9ff;
+    height: 90px;
+    padding: 20px 24px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+ 
+/* Decorative Header Pattern Circle */
+.banner-design-circle {
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 170px;
+    height: 170px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+ 
+/* Back Button (Top Left) */
+.btn-back {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 13px;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 2;
+}
+ 
+.btn-back:hover {
+    background-color: #ffffff;
+    color: #5F9EA0;
+}
+ 
+/* Active Badge (Top Right) */
+.status-badge-top {
+    background-color: #10b981;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    position: relative;
+    z-index: 2;
+}
+ 
+/* Body Content Padding */
+.profile-body-content {
+    padding: 32px 117px; /* Equal left and right inner margin */
+}
+ 
+/* Profile Header Title */
+.profile-title h2 {
+    color: #1e293b;
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 2px;
+}
+ 
+.profile-title p {
+    color: #5F9EA0;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+ 
+/* Equal Left and Right Gap Layout */
+.profile-info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Pushes columns to outer edges equally */
+    row-gap: 22px;
+}
+ 
+.profile-info-grid .info-box {
+    width: 42%; /* Leaves perfect spacing in middle and equal margins on outer sides */
+    text-align: left; /* Normal left text alignment */
+}
+ 
+.info-box label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+}
+ 
+.info-box h6 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #94a3b8;
+    margin: 0;
+}
+ 
+.info-box .text-success {
+    color: #10b981 !important;
+}
+ 
+/* Edit Button (Bottom Right) */
+.btn-edit {
+    background-color:#80cbf3;
+    color: black;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 22px;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(95, 158, 160, 0.3);
+    transition: all 0.2s ease;
+    margin-right: -100px;
+}
+ 
+.btn-edit:hover {
+    background-color: #80cbf3;
+    color: black;
+    transform: translateY(-1px);
+}
+ 
+/* Mobile Responsiveness */
+@media (max-width: 576px) {
+    .profile-body-content {
+        padding: 20px;
+    }
+    .profile-info-grid .info-box {
+        width: 100%;
+    }
+}
+ 
+ 
+ 
+ 
+
+
+
+/* Project Report & Login History */
+
+.login-history-card{
+ 
+    border-radius:20px;
+    overflow:hidden;
+}
+ 
+.login-history-card .card-header{
+ 
+    background:#fff;
+}
+ 
+.login-history-card h4{
+ 
+    font-weight:700;
+}
+ 
+.form-control,
+.form-select{
+ 
+    height:39px;
+    border-radius:12px;
+}
+ 
+.form-control:focus,
+.form-select:focus{
+ 
+    box-shadow:none;
+    border-color:#1aa7c1;
+}
+ 
+/* .btn-show{
+
+    background: linear-gradient(90deg,#082ab2,#0f1eef);
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    height:48px;
+    min-width:170px;
+    font-weight:600;
+    transition:.3s;
+}
+ 
+.btn-show:hover{
+    background: linear-gradient(90deg,#0b1b94,#300bb5);
+    color:#fff;
+    transform: translateY(-2px);
+}
+ 
+.btn-download{
+    background: linear-gradient(90deg,#481beb,#1465dd);
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    height:48px;
+    min-width:170px;
+    font-weight:600;
+    transition:.3s;
+}
+ 
+.btn-download:hover{
+    background: linear-gradient(90deg,#0929b4,#aa128c);
+    color:#fff;
+    transform: translateY(-2px);
+} */
+ .btn-show,
+.btn-download {
+    color: black;
+    border: none;
+    border-radius: 10px;
+    height: 42px;
+    width: 107px;
+    padding: 0 !important;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+}
+
+.btn-show {
+    background:#80cbf3;
+}
+
+.btn-download {
+    background: #80cbf3;
+}
+
+.btn-show:hover,
+.btn-download:hover {
+    color:black;
+    background: #88cdf2;
+    /* transform: translateY(-2px); */
+}
+.table thead{
+ 
+    background:#edf8fb;
+}
+ 
+.table thead th{
+ 
+    color:#050c0d;
+    font-weight:600;
+}
+ 
+.table tbody tr:hover{
+ 
+    background:#f7fcfd;
+}
+ 
+.badge{
+ 
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:13px;
+   background-color: green;
+   color: white;
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+ 
+/* Large Tablet */
+@media (max-width: 992px){
+ 
+    .login-history-card{
+        border-radius:16px;
+    }
+ 
+    .form-control,
+    .form-select{
+        height:46px;
+        font-size:15px;
+    }
+ 
+    .btn-show,
+    .btn-download{
+        min-width:150px;
+        height:45px;
+        font-size:15px;
+    }
+ 
+    .table{
+        font-size:12px;
+    }
+}
+ 
+/* Tablet */
+@media (max-width: 768px){
+ 
+    .login-history-card{
+        margin:10px;
+    }
+ 
+    .login-history-card h4{
+        font-size:20px;
+        text-align:center;
+    }
+ 
+    .card-header{
+        text-align:center;
+    }
+ 
+    .form-control,
+    .form-select{
+        height:45px;
+        font-size:14px;
+    }
+ 
+    .btn-show,
+    .btn-download{
+        width:100%;
+        min-width:100%;
+        margin-bottom:10px;
+    }
+ 
+    .table{
+        font-size:13px;
+        white-space:nowrap;
+    }
+ 
+    .table-responsive{
+        overflow-x:auto;
+    }
+ 
+    .badge{
+        font-size:12px;
+        padding:6px 12px;
+    }
+}
+ 
+/* Mobile */
+@media (max-width: 576px){
+ 
+    .login-history-card{
+        border-radius:12px;
+        margin:5px;
+    }
+ 
+    .card-header{
+        padding:15px;
+    }
+ 
+    .login-history-card h4{
+        font-size:18px;
+    }
+ 
+    .card-body{
+        padding:15px;
+    }
+ 
+    .form-label{
+        font-size:14px;
+        font-weight:600;
+    }
+ 
+    .form-control,
+    .form-select{
+        height:42px;
+        font-size:13px;
+    }
+ 
+    .btn-show,
+    .btn-download{
+        width:100%;
+        height:44px;
+        font-size:14px;
+    }
+ 
+    .table{
+        font-size:12px;
+    }
+ 
+    .table th,
+    .table td{
+        padding:10px;
+        white-space:nowrap;
+    }
+ 
+    .badge{
+        font-size:11px;
+        padding:5px 10px;
+    }
+}
+
+
+
+
+/********************  Back Button CSS ************************/
+
+ .back-button-wrapper {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.back-button {
+  width: 76px;
+  height: 36px;
+  padding: 0;
+ 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+ 
+  background: #ffffff;
+  color: #172033;
+ 
+  border: 1px solid #d9e2ec;
+  border-radius: 6px;
+ 
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+ 
+  cursor: pointer;
+  box-sizing: border-box;
+ 
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.back-button span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+ 
+  font-size: 18px;
+  line-height: 1;
+  color: #0d6efd;
+}
+
+.back-button:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+@media (max-width: 991px) {
+.back-button-wrapper {
+    margin-bottom: 14px;
+  }
+}
+
+
+@media (max-width: 576px) {
+     .back-button-wrapper {
+    margin-bottom: 12px;
+  }
+ 
+  .back-button {
+    width: 76px;
+    height: 34px;
+ 
+    font-size: 12px;
+  }
+ 
+  .back-button span {
+    font-size: 16px;
+  }
+}

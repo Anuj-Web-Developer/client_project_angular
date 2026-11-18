@@ -1,0 +1,90 @@
+<!-- <h3>Total Users: {{ userList.length }}</h3> -->
+<div class="container mt-4">
+    <div class="card shadow-lg border-0">
+        <!-- Header -->
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0" style="color: black; font-weight:700; font-size:18px">Project List</h4>
+            <button class="btn btn-light" routerLink="/project/add-project">
+                <i class="bi bi-plus-circle"></i>
+                Add New Project
+            </button>
+        </div>
+        <!-- Body -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="projectTable" class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Customer Name</th>
+                            <th>Company Name</th>
+                            <th>Created At</th>
+                            <th class="text-center">Status</th>
+                            <th width="180" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(list of projectList; track list.id){
+                        <tr>
+                            <td><a style="text-decoration: none;"
+                                    [routerLink]="['/project/view-project',list.id]">{{list?.projectName}}</a></td>
+                            <td>{{list.customer?.name || 'NA'}}</td>
+                            <td>{{list.customer?.companyName || 'NA'}}</td>
+                            <td>{{list.createdAt | date:'dd-MM-yyyy'}}</td>
+                            <td class="text-center">
+                                @if(list.status == 'ACTIVE') {
+                                <span class="badge bg-success">
+                                    {{list.status}}
+                                </span>
+                                }@else if(list.status == 'INACTIVE') {
+                                <span class="badge bg-danger">
+                                    {{list.status}}
+                                </span>
+                                } @else {
+                                <span class="badge bg-primary">
+                                    {{list.status}}
+                                </span>
+                                }
+
+                            </td>
+                            <!-- <td class="text-center">
+                                <button [routerLink]="['/project/add-project',list.id]" class="btn btn-secondary">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                            </td> -->
+                            <td class="text-center">
+                                <div class="dropdown">
+                                    <button class="btn btn-light" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="bi bi-three-dots"></i>
+                                    </button>
+
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li [routerLink]="['/project/view-project',list.id]" >
+                                            <a class="dropdown-item">
+                                                View
+                                            </a>
+                                        </li>
+
+                                        <li [routerLink]="['/project/edit-project',list.id]">
+                                            <a class="dropdown-item" >
+                                                Edit
+                                            </a>
+                                        </li>
+
+                                        <li (click)="sendReminder(list.id)">
+                                            <a class="dropdown-item">
+                                                Reminder
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

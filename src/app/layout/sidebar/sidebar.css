@@ -1,0 +1,433 @@
+ 
+   /* SIDEBAR */
+ 
+#sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #DDF4FF;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 4px 0 18px rgba(0, 0, 0, 0.12);
+    z-index: 1050;
+    transition: all 0.30s ease;
+}
+
+   /* LOGO */
+
+#sidebar-logo {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #DDF4FF;
+    flex-shrink: 0;
+}
+#sidebar-logo img {
+    width: 134px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+   /* SIDEBAR CONTENT */
+
+.sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 15px;
+    padding-left: 2px;
+    background: #DDF4FF;
+}
+
+   /* SIDEBAR MENU */
+
+.sidebar-menu {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 15px;
+    scroll-behavior: smooth;
+}
+
+   /* SCROLLBAR */
+
+.sidebar-menu::-webkit-scrollbar,
+.sidebar-content::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-menu::-webkit-scrollbar-track,
+.sidebar-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sidebar-menu::-webkit-scrollbar-thumb,
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: #A5D8F3;
+    border-radius: 30px;
+}
+.sidebar-menu::-webkit-scrollbar-thumb:hover,
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: #7EC4EC;
+}
+ 
+    /* MENU LIST  */
+#sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+ 
+   /* MENU LINKS */
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 7px 18px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-left: -11;
+    margin-right: 5px;
+    min-height: 40px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #1E293B !important;
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    transition: all 0.30s ease;
+}
+
+   /* MENU TEXT */
+
+.sidebar-link span {
+    flex: 1;
+
+    color: #1E293B;
+    font-size: 15px;
+    font-weight: 600; 
+    white-space: nowrap;
+}
+ 
+   /* MENU ICONS */
+.sidebar-link i {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #F8FCFF;
+    color: #2563EB;
+    font-size: 18px;
+    transition: all 0.30s ease;
+}
+ 
+   /* HOVER */
+ .sidebar-link:hover {
+    background: #BFE9FF;
+     color: #1E293B !important;
+     box-shadow: 0 8px 18px rgba(37, 99, 235, 0.10);
+}
+ .sidebar-link:hover i {
+    background: #2563EB;
+    color: #FFFFFF;
+    transform: scale(1.08);
+}
+.sidebar-link:hover span {
+    color: #1E293B;
+}
+
+   /* ACTIVE MENU */
+
+ .sidebar-link.active {
+    background: #FFFFFF;
+     color: #2563EB !important;
+     font-weight: 700;
+     border-left: 4px solid #2563EB;
+     box-shadow: 0 10px 22px rgba(37, 99, 235, 0.15);
+}
+ .sidebar-link.active i {
+    background: #2563EB;
+     color: #FFFFFF;
+}
+ .sidebar-link.active span {
+    color: #2563EB;
+     font-weight: 700;
+}
+ 
+   /* LEFT ACTIVE / HOVER EFFECT */
+
+ .sidebar-link::before {
+    content: "";
+     position: absolute;
+     left: 0;
+    top: 0;
+     width: 4px;
+    height: 100%;
+     background: #2563EB;
+     transform: scaleY(0);
+     transition: transform 0.30s ease;
+}
+ 
+.sidebar-link:hover::before {
+    transform: scaleY(1);
+}
+ .sidebar-link.active::before {
+    transform: scaleY(1);
+}
+
+   /* LOGOUT SECTION */
+ 
+.sidebar-logout {
+    margin-top: auto;
+     padding: 15px;
+     background: #DDF4FF;
+     flex-shrink: 0;
+}
+ 
+    /* LOGOUT BUTTON */
+ 
+.logout-btn {
+    width: 100%;
+     height: 48px;
+     border: none;
+     border-radius: 12px;
+     background: linear-gradient(
+        135deg,
+        #5F9EA0 0%,
+        #4F8CFF 100%
+    );
+     color: #FFFFFF;
+     font-size: 15px;
+     font-weight: 600;
+     cursor: pointer;
+    outline: none;
+     transition: all 0.30s ease;
+}
+ 
+ /* Logout Icon */
+.logout-btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+ 
+/* Logout Hover *
+.logout-btn:hover {
+    background: linear-gradient(
+        135deg,
+        #3B82F6 0%,
+        #2563EB 100%
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+}
+ 
+/* Logout Active */
+.logout-btn:active {
+    transform: scale(0.98);
+}
+ 
+    /* FOCUS */
+ 
+.sidebar-link:focus,
+.sidebar-link:focus-visible,
+.logout-btn:focus,
+.logout-btn:focus-visible {
+    outline: none;
+}
+
+   /* TABLET / MOBILE SIDEBAR */
+ 
+@media (max-width: 991px) {
+    #sidebar {
+        position: fixed;
+        top: 70px;
+        left: -260px;
+        width: 260px;
+        height: calc(100vh - 70px);
+        background: #DDF4FF !important;
+        opacity: 1 !important;
+        z-index: 1100;
+        box-shadow: 6px 0 20px rgba(0, 0, 0, 0.18);
+        transition: left 0.35s ease;
+    }
+ 
+    /* Open Sidebar */
+    #sidebar.sidebar-open {
+        left: 0;
+    }
+ 
+    /* Sidebar Logo */
+    #sidebar-logo {
+        background: #DDF4FF !important;
+        opacity: 1 !important;
+    }
+ 
+    /* Sidebar Content */
+    .sidebar-content,
+    .sidebar-menu {
+        background: #DDF4FF !important;
+        opacity: 1 !important;
+        padding-bottom: 95px;
+    }
+ 
+    /* Logout */
+    .sidebar-logout {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: #DDF4FF !important;
+        opacity: 1 !important;
+    }
+}
+
+   /* SMALL MOBILE */
+ 
+@media (max-width: 576px) {
+    #sidebar {
+        width: 240px;
+        left: -240px;
+        top: 65px;
+        height: calc(100vh - 65px);
+        background: #DDF4FF !important;
+        opacity: 1 !important;
+        z-index: 1100;
+    }
+ 
+    /* Open */
+    #sidebar.sidebar-open {
+        left: 0;
+    }
+ 
+    /* Logo */
+    #sidebar-logo {
+        height: 70px;
+        background: #DDF4FF !important;
+    }
+    #sidebar-logo img {
+        width: 134px;
+    }
+
+ 
+    /* Content */
+    .sidebar-content {
+        background: #DDF4FF !important;
+        padding: 12px 10px 95px 10px;
+    }
+ 
+    .sidebar-menu {
+        background: #DDF4FF !important;
+        padding: 12px 10px 95px 10px;
+    }
+ 
+    /* Links */
+    .sidebar-link {
+        padding: 9px 12px;
+        min-height: 50px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 4px;
+        margin-bottom: 8px;
+        gap: 10px;
+        font-size: 14px;
+        border-radius: 13px;
+    }
+ 
+    /* Text */
+    .sidebar-link span {
+        font-size: 14px;
+        font-weight: 600;
+    }
+ 
+    /* Icons */
+    .sidebar-link i {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        font-size: 17px;
+        border-radius: 9px;
+    }
+    /* Active */
+    .sidebar-link.active {
+        border-left: 4px solid #2563EB;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.15);
+    }
+ 
+    /* Logout Area */
+    .sidebar-logout {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 12px;
+        background: #DDF4FF !important;
+    }
+ 
+    /* Logout Button */
+    .logout-btn {
+        height: 45px;
+        font-size: 14px;
+        border-radius: 11px;
+    }
+}
+
+   /* VERY SMALL MOBILE */
+ 
+@media (max-width: 400px) {
+    #sidebar {
+        width: 230px;
+        left: -230px;
+        background: #DDF4FF !important;
+    }
+    #sidebar.sidebar-open {
+        left: 0;
+    }
+    .sidebar-link {
+        padding: 8px 10px;
+        min-height: 48px;
+    }
+    .sidebar-link i {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        font-size: 16px;
+    }
+ 
+    .sidebar-link span {
+        font-size: 13px;
+    }
+    .sidebar-logout {
+        padding: 10px;
+    }
+    .logout-btn {
+        height: 43px;
+        font-size: 13px;
+    }
+}
+ 
+   /* PREVENT TRANSPARENCY ON MOBILE */
+
+@media (max-width: 991px) {
+ 
+    #sidebar,
+    #sidebar-logo,
+    .sidebar-content,
+    .sidebar-menu,
+    .sidebar-logout {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+    }
+}
+
+   /* SMOOTH TRANSITION */
+ 
+.sidebar-link,
+.logout-btn,
+#sidebar {
+    transition: all 0.30s ease;
+}
+ 

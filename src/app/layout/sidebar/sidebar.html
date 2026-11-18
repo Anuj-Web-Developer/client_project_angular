@@ -1,0 +1,61 @@
+
+
+<div id="sidebar" class=" shadow-sm sticky-top" [class.sidebar-open]="isOpen">
+
+    <div id="sidebar-logo">
+        <img src="assets\images\Navy Logo 5.png" class="img-fluid" style="max-height:100px;" alt="Logo">
+    </div>
+ 
+    <div class="sidebar-content">
+        <ul class="nav flex-column gap-2">
+            <li class="nav-item">
+                <a class="nav-link sidebar-link" routerLink="/dashboard" routerLinkActive="active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item" *ngIf="backendRole === 'ROLE_ADMIN'">
+                <a class="nav-link sidebar-link" routerLink="/user" routerLinkActive="active">
+                    <i class="fa-solid fa-users"></i>
+                    <span>User</span>
+                </a>
+            </li>
+ 
+            <li class="nav-item" *ngIf="backendRole === 'ROLE_ADMIN'">
+                <a class="nav-link sidebar-link" routerLink="/customer" routerLinkActive="active">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Customer</span>
+                </a>
+            </li>
+ 
+            <li class="nav-item">
+                <a class="nav-link sidebar-link" routerLink="/project" routerLinkActive="active">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span>Project</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link sidebar-link" routerLink="/report/login-history" routerLinkActive="active">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Login History</span>
+                </a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link sidebar-link" routerLink="/report/project-report" routerLinkActive="active">
+                    <i class="fa-solid fa-file-lines"></i>
+ 
+                    <span>Project Report</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar-logout">
+        <button class="btn logout-btn w-100" (click)="logout()">
+            <i class="fa-solid fa-right-from-bracket me-2"></i>
+            Logout
+        </button>
+    </div>
+</div>
+ 
+ 

@@ -1,0 +1,991 @@
+.customer-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 32px 50px;
+  background: #f5f7fb;
+}
+
+.customer-page *,
+.customer-page button,
+.customer-page a {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-btn {
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid #80cbf3;
+  border-radius: 8px;
+  background: #80cbf3;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn i {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.back-btn:hover {
+  color: #ffffff;
+  border-color: #80cbf3;
+  background: #80cbf3;
+}
+
+/* =====================================================
+   HEADER ACTIONS
+===================================================== */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* =====================================================
+   SEND / REMINDER BUTTON
+===================================================== */
+
+.reminder-btn {
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 8px;
+  background: #80cbf3;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.reminder-btn:hover {
+  background: #80cbf3;
+}
+
+.reminder-btn i {
+  color: black;
+  font-size: 15px;
+}
+
+/* =====================================================
+   CUSTOMER CARD
+===================================================== */
+
+.customer-card {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 285px minmax(0, 1fr);
+  background: #ffffff;
+  border: 1px solid #e1e6ee;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(23, 32, 51, 0.07);
+}
+
+/* =====================================================
+   CUSTOMER SIDEBAR
+===================================================== */
+
+.customer-sidebar {
+  padding: 38px 26px;
+  border-right: 1px solid #e3e8ef;
+  background: #ffffff;
+}
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.profile-section {
+  width: 100%;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #53b0e3;
+  color: #ffffff;
+}
+
+.profile-avatar i {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.profile-name {
+  width: 100%;
+  text-align: center;
+}
+
+.profile-name h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.profile-name p {
+  margin: 6px 0 0;
+  color: #718096;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* =====================================================
+   PROFILE DIVIDER
+===================================================== */
+
+.profile-divider {
+  position: relative;
+  width: 100%;
+  height: 32px;
+  margin-top: 8px;
+}
+
+.divider-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #e3e8ef;
+}
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.contact-icon {
+  width: 24px;
+  min-width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #53b0e3;
+  font-size: 17px;
+}
+
+.contact-content {
+  min-width: 0;
+}
+
+.contact-content span {
+  display: block;
+  margin-bottom: 5px;
+  color: #7a879b;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.contact-content strong {
+  display: block;
+  color: #172033;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   SIDEBAR ACTIONS
+===================================================== */
+
+.sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.sidebar-btn {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid #d4e0f5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #53b0e3;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-btn i {
+  color: #53b0e3;
+  font-size: 16px;
+}
+
+.sidebar-btn:hover {
+  background: #f1faff;
+  border-color: #53b0e3;
+}
+
+/* =====================================================
+   CUSTOMER CONTENT
+===================================================== */
+
+.customer-content {
+  min-width: 0;
+  padding: 34px 36px 0;
+}
+
+.content-section {
+  width: 100%;
+  padding-bottom: 28px;
+}
+
+.content-section + .content-section {
+  padding-top: 15px;
+  border-top: 1px solid #e3e8ef;
+}
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.section-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #edf7fd;
+  color: #53b0e3;
+  font-size: 18px;
+}
+
+.section-icon i {
+  color: #53b0e3;
+}
+
+.section-heading h3 {
+  margin: 0;
+  color: #172033;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   PROJECT
+===================================================== */
+
+.project-section {
+  position: relative;
+}
+
+.project-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 35px;
+  margin-bottom: 24px;
+}
+
+.info-block {
+  min-width: 0;
+}
+
+.info-block span,
+.description > span {
+  display: block;
+  margin-bottom: 7px;
+  color: #718096;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.info-block strong,
+.info-block a {
+  display: block;
+  color: #172033;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.info-block a {
+  color: #53b0e3;
+}
+
+.info-block a:hover {
+  color: #53b0e3;
+  text-decoration: underline;
+}
+
+.info-block .muted {
+  color: #718096;
+}
+
+/* =====================================================
+   ACTIVE BADGE
+===================================================== */
+
+.active-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e8f7ee;
+  color: #198754;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #198754;
+}
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description {
+  width: 100%;
+}
+
+.description-box {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #f6f8fb;
+  color: #172033;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* =====================================================
+   CREDENTIALS
+===================================================== */
+
+.credential-list {
+  width: 100%;
+}
+
+.credential-row {
+  width: 100%;
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 18px;
+  border-bottom: 1px solid #e3e8ef;
+}
+
+.credential-row:last-child {
+  border-bottom: 0;
+}
+
+.credential-label {
+  color: #718096;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.credential-value {
+  min-width: 0;
+  color: #172033;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+a.credential-value {
+  color: #53b0e3;
+}
+
+a.credential-value:hover {
+  color: #53b0e3;
+  text-decoration: underline;
+}
+
+.credential-value.password {
+  letter-spacing: 2px;
+}
+
+/* =====================================================
+   CREDENTIAL ACTIONS
+===================================================== */
+
+.credential-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* =====================================================
+   ROCKET ICON
+===================================================== */
+
+.rocket-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #172033;
+  font-size: 18px;
+  flex-shrink: 0;
+  cursor: default;
+}
+
+.rocket-icon:hover {
+  color: #53b0e3;
+}
+
+/* =====================================================
+   COPY BUTTON
+===================================================== */
+
+.copy-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: #edf7fd;
+  color: #53b0e3;
+  font-size: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #53b0e3;
+  color: #ffffff;
+}
+
+/* =====================================================
+   SERVER INFORMATION
+===================================================== */
+
+.server-section {
+  width: 100%;
+  padding-bottom: 34px;
+}
+
+.server-grid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.server-item {
+  width: 100%;
+  min-width: 0;
+}
+
+.server-item > span {
+  display: block;
+  margin: 0 0 6px;
+  color: #718096;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   SERVER VALUE
+===================================================== */
+
+.server-value {
+  width: 100%;
+  min-width: 0;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.server-value > a,
+.server-value > strong {
+  min-width: 0;
+  color: #172033;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.server-value > a {
+  color: #53b0e3;
+}
+
+.server-value > a:hover {
+  color: #53b0e3;
+  text-decoration: underline;
+}
+
+/* =====================================================
+   SERVER ACTIONS
+===================================================== */
+
+.server-value .credential-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   SERVER ROCKET
+===================================================== */
+
+.server-value .rocket-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #172033;
+  font-size: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.server-value .rocket-icon:hover {
+  color: #53b0e3;
+  transform: translateY(-1px);
+}
+
+/* =====================================================
+   SERVER COPY BUTTON
+===================================================== */
+
+.server-value .copy-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
+  background: #edf7fd;
+  color: #53b0e3;
+  font-size: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.server-value .copy-btn:hover {
+  background: #53b0e3;
+  color: #ffffff;
+}
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+.server-value .password {
+  letter-spacing: 2px;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 991px) {
+
+  .server-value {
+    gap: 10px;
+  }
+
+  .server-value .credential-actions {
+    gap: 8px;
+  }
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 767px) {
+
+  .server-grid {
+    gap: 18px;
+  }
+
+  .server-value {
+    min-height: 40px;
+    gap: 8px;
+  }
+
+  .server-value > a,
+  .server-value > strong {
+    font-size: 13px;
+  }
+
+  .server-value .credential-actions {
+    gap: 6px;
+  }
+
+  .server-value .rocket-icon,
+  .server-value .copy-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .server-value {
+    align-items: flex-start;
+  }
+
+  .server-value > a,
+  .server-value > strong {
+    overflow-wrap: anywhere;
+  }
+
+}
+
+/* =====================================================
+   TABLET MAIN LAYOUT
+===================================================== */
+
+@media (max-width: 991px) {
+
+  .customer-page {
+    padding: 22px 20px 40px;
+  }
+
+  .customer-card {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .customer-sidebar {
+    padding: 30px 20px;
+  }
+
+  .customer-content {
+    padding: 28px 26px 0;
+  }
+
+  .project-grid {
+    column-gap: 22px;
+  }
+
+  .credential-row {
+    grid-template-columns: 105px minmax(0, 1fr) 38px;
+    column-gap: 12px;
+  }
+
+  .profile-name h2 {
+    font-size: 20px;
+  }
+
+}
+
+/* =====================================================
+   MOBILE MAIN LAYOUT
+===================================================== */
+
+@media (max-width: 767px) {
+
+  .customer-page {
+    padding: 15px 12px 30px;
+  }
+
+  /* Header */
+
+  .page-header {
+    margin-bottom: 15px;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    gap: 7px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .back-btn {
+    height: 40px;
+    padding: 0 14px;
+  }
+
+  .reminder-btn {
+    height: 40px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+
+  /* Main Card */
+
+  .customer-card {
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* Sidebar */
+
+  .customer-sidebar {
+    padding: 28px 22px;
+    border-right: 0;
+    border-bottom: 1px solid #e3e8ef;
+  }
+
+  .profile-avatar {
+    width: 78px;
+    height: 78px;
+  }
+
+  .profile-avatar i {
+    font-size: 26px;
+  }
+
+  .profile-name h2 {
+    font-size: 20px;
+  }
+
+  /* Content */
+
+  .customer-content {
+    padding: 25px 20px 0;
+  }
+
+  /* Project */
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+
+  /* Active Badge */
+
+  .active-badge {
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  /* Login */
+
+  .credential-row {
+    grid-template-columns: 90px minmax(0, 1fr) 36px;
+    column-gap: 8px;
+    min-height: 62px;
+  }
+
+  .credential-label {
+    font-size: 12px;
+  }
+
+  .credential-value {
+    font-size: 13px;
+  }
+
+  /* Server */
+
+  .server-grid {
+    gap: 18px;
+  }
+
+}
+
+/* =====================================================
+   SMALL MOBILE MAIN LAYOUT
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .page-header {
+    flex-direction: row;
+  }
+
+  .back-btn {
+    width: 40px;
+    padding: 0;
+  }
+
+  .back-btn span {
+    display: none;
+  }
+
+  .header-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .reminder-btn {
+    width: 40px;
+    padding: 0;
+  }
+
+  .reminder-btn span {
+    display: none;
+  }
+
+  /* Sidebar */
+
+  .customer-sidebar {
+    padding: 25px 18px;
+  }
+
+  .profile-name h2 {
+    font-size: 19px;
+  }
+
+  /* Content */
+
+  .customer-content {
+    padding: 22px 17px 0;
+  }
+
+  /* Section */
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+    font-size: 16px;
+  }
+
+  .section-heading h3 {
+    font-size: 16px;
+  }
+
+  /* Active Badge */
+
+  .active-badge {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    flex-basis: 6px;
+  }
+
+  /* Login */
+
+  .credential-row {
+    grid-template-columns: 1fr 36px;
+    row-gap: 5px;
+    padding: 12px 0;
+  }
+
+  .credential-label {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .credential-value {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .copy-btn {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  /* Server */
+
+  .server-grid {
+    gap: 18px;
+  }
+
+}

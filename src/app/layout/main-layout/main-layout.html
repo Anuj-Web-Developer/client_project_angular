@@ -1,0 +1,17 @@
+<!-- app-main-layout / main-layout.component.html -->
+<div class="d-flex layout-wrapper m-0 ">
+
+  <app-sidebar [isOpen]="isSidebarOpen"></app-sidebar>
+
+  <!-- backdrop for mobile -->
+  <div class="sidebar-backdrop d-lg-none" *ngIf="isSidebarOpen" (click)="closeSidebar()"></div>
+
+  <div class="flex-grow-1 main-content">
+    <app-header (sidebarToggle)="toggleSidebar()"></app-header>
+
+    <div class="content-area p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>

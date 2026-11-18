@@ -1,0 +1,433 @@
+<div class="container-fluid py-4">
+    <div class="card custom-card">
+        <!-- ================= HEADER ================= -->
+        <div class="card-header section-header">
+            <div class="d-flex align-items-center">
+                <div class="header-icon">
+                    <!-- <i class="bi bi-folder2-open"></i> -->
+                </div>
+                <div>
+                    <h4 class="mb-0">
+                        {{ projectId > 0 ? 'Update Project' : 'Add Project' }}
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <!-- ================= CUSTOMER INFORMATION ================= -->
+            <div class="info-card mb-4">
+                <div class="info-header">
+                    <i class="bi bi-person-vcard-fill"></i>
+                    <h5>Customer Information</h5>
+                </div>
+                <div class="row">
+                    <!-- Customer Search -->
+                    <div class="col-lg-6 mb-3 position-relative">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-person-fill me-2"></i> -->
+                            Customer Name
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Search Customer..."
+                                [(ngModel)]="keyword" (input)="searchName()" autocomplete="off">
+                        </div>
+                        @if(customerList.length > 0){
+                        <div class="customer-dropdown shadow">
+                            @for(name of customerList; track name.id){
+                            <button type="button" class="customer-item" (click)="selectCustomer(name)">
+                                <div class="d-flex align-items-center">
+                                    <!-- <div class="customer-icon">
+                                        <i class="bi bi-person-circle"></i>
+                                    </div> -->
+                                    <div>
+                                        <h6 class="mb-0">
+                                            {{name.name}}
+                                        </h6>
+                                        <small class="text-muted">
+                                            <i class="bi bi-building"></i>
+                                            {{name.email}}
+                                        </small>
+                                    </div>
+                                </div>
+                            </button>
+                            }
+                        </div>
+                        }
+                    </div>
+                    <!-- Email -->
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-envelope-fill me-2"></i> -->
+                            Email Address
+                        </label>
+                        <input type="email" class="form-control" [value]="selectedCustomer?.email"
+                            placeholder="Enter email address..." disabled style="cursor: not-allowed;">
+                    </div>
+                    <!-- Contact -->
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-telephone-fill me-2"></i> -->
+                            Contact Number
+                        </label>
+                        <input type="text" class="form-control" [value]="selectedCustomer?.contact"
+                            placeholder="Enter contact number... " disabled style="cursor: not-allowed;">
+                    </div>
+                    <!-- Company -->
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-building me-2"></i> -->
+                            Company Name
+                        </label>
+                        <input type="text" class="form-control" [value]="selectedCustomer?.companyName"
+                            placeholder="Enter company name..." disabled style="cursor: not-allowed;">
+                    </div>
+                </div>
+            </div>
+            <!-- ================= PROJECT INFORMATION ================= -->
+            <div class="info-card mb-4">
+                <div class="info-header">
+                    <i class="bi bi-folder-fill"></i>
+                    <h5>Project Information</h5>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-pencil-square me-2"></i> -->
+                            Project Name<span class="text-danger"> *</span>
+                        </label>
+                        <input type="text" class="form-control" placeholder="Enter Project Name"
+                            [(ngModel)]="projectData.projectName" name="projectName" #projectName="ngModel"
+                            minlength="3" maxlength="100" required>
+
+                        <small class="text-danger" *ngIf="backendErrors['projectName']">
+                            {{backendErrors['projectName']}}
+                        </small>
+
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-calendar-event-fill me-2"></i> -->
+                            Start Date<span class="text-danger"> *</span>
+                        </label>
+                        <input type="date" class="form-control" name="startDate" #startDate="ngModel"
+                            [(ngModel)]="projectData.projectStartDate" required>
+
+                        <small class="text-danger" *ngIf="backendErrors['projectStartDate']">
+                            {{backendErrors['projectStartDate']}}
+                        </small>
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-calendar-check-fill me-2"></i> -->
+                            Deliver Date
+                        </label>
+                        <input type="date" class="form-control" name="deliverDate" #deliverDate=ngModel
+                            [(ngModel)]="projectData.projectEndDate">
+                        @if(projectData.projectEndDate.length>0){
+                        <small class="text-danger" *ngIf="projectData.projectStartDate>projectData.projectEndDate">
+                            End date should greater than Start date.
+                        </small>
+                        }
+
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-share-fill me-2"></i> -->
+                            Social Media
+                        </label>
+                        <input type="text" class="form-control" placeholder="Enter Social Media Link"
+                            [(ngModel)]="projectData.socialMedia">
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <label class="form-label">
+                            <!-- <i class="bi bi-card-text me-2"></i> -->
+                            Project Description<span class="text-danger"> *</span>
+                        </label>
+                        <textarea rows="5" class="form-control" name="description"
+                            placeholder="Enter Project Description" [(ngModel)]="projectData.description"
+                            #description="ngModel" required minlength="3" maxlength="100">
+                        </textarea>
+
+                        <small class="text-danger" *ngIf="backendErrors['description']">
+                            {{backendErrors['description']}}
+                        </small>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                        <label class="form-label mb-1">
+                            <!-- <i class="bi bi-check-circle me-1"></i> -->
+                            Status
+                        </label>
+
+                        <select class="form-select form-select-sm" [(ngModel)]="projectData.status" name="status">
+
+                            <!-- <option [ngValue]="null" disabled>Select</option> -->
+                            <option value="ACTIVE" selected>Active</option>
+                            <option value="INACTIVE">Inactive</option>
+                            <option value="COMPLETED">Completed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- ================= LOGIN INFORMATION ================= -->
+            <div class="info-card mb-4">
+                <div class="info-header">
+                    <i class="bi bi-shield-lock-fill"></i>
+                    <h5>Login Information</h5>
+                </div>
+
+                <div class="row">
+
+                    <!-- ================= URL ================= -->
+                    <div class="col-lg-4 mb-3">
+
+                        <label class="form-label">
+                            <!-- <i class="bi bi-link-45deg me-2"></i> -->
+                            URL<span class="text-danger"> *</span>
+                        </label>
+
+                        <input type="url" class="form-control" name="loginUrl" [(ngModel)]="projectData.loginUrl"
+                            #loginUrl="ngModel" required placeholder="https://example.com/login">
+                        <!-- Required validation -->
+
+                        <small class="text-danger" *ngIf="backendErrors['loginUrl']">
+                            {{backendErrors['loginUrl']}}
+                        </small>
+
+                    </div>
+
+                    <!-- ================= USERNAME ================= -->
+                    <div class="col-lg-4 mb-3">
+
+                        <label class="form-label">
+                            <!-- <i class="bi bi-person-fill me-2"></i> -->
+                            Username <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control" name="username" [(ngModel)]="projectData.username"
+                            #username="ngModel" required minlength="3" maxlength="50" placeholder=" Enter Username">
+                        <!-- Required validation -->
+
+                        <small class="text-danger" *ngIf="backendErrors['username']">
+                            {{backendErrors['username']}}
+                        </small>
+
+                    </div>
+
+                    <!-- ================= PASSWORD ================= -->
+                    <div class="col-lg-4 mb-3">
+
+                        <label class="form-label">
+                            <!-- <i class="bi bi-lock-fill me-2"></i> -->
+                            Password<span class="text-danger"> *</span>
+                        </label>
+
+                        <div class="input-group">
+
+                            <input [type]="showProjectPassword ? 'text' : 'password'" class="form-control"
+                                name="password" [(ngModel)]="projectData.password" #password="ngModel" required
+                                minlength="4" maxlength="40" placeholder="Enter login password">
+
+                            <button class="btn btn-outline-secondary" type="button"
+                                (click)="showProjectPassword = !showProjectPassword">
+                                <i class="bi" [ngClass]="showProjectPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                            </button>
+                        </div>                      
+
+                        <small class="text-danger" *ngIf="backendErrors['password']">
+                            {{backendErrors['password']}}
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <label>
+                       Attachment
+                    </label>
+                    <input
+                         type="file"
+                        placeholder="please select file"
+                         accept=".doc, .docx, .xls, .xlsx"
+                         class="form-control"
+                        (change)="onLoginAttachmentSelected($event)">
+                </div>
+                <small>only .doc,.docx,.xls,.xlsx</small>
+            </div>
+            <!-- ================= SERVER INFORMATION ================= -->
+
+            <div class="info-card mb-4">
+                <div class="info-header">
+                    <i class="bi bi-server"></i>
+                    <h5>Server Information</h5>
+                </div>
+
+                <div class="row">
+
+                    <!-- ================= SERVER URL ================= -->
+                    <div class="col-lg-4 mb-3">
+
+                        <label class="form-label">
+                            <!-- <i class="bi bi-globe2 me-2"></i> -->
+                            Server URL
+                        </label>
+
+                        <input type="url" class="form-control" name="serverUrl" placeholder="https://server.com"
+                            [(ngModel)]="projectData.serverUrl" #serverUrl="ngModel">
+
+                    </div>
+
+                    <!-- ================= SERVER USERNAME ================= -->
+                    <div class="col-lg-4 mb-3">
+
+                        <label class="form-label">
+                            <!-- <i class="bi bi-person-badge-fill me-2"></i> -->
+                            Username
+                        </label>
+
+                        <input type="text" class="form-control" name="serverUsername"
+                            placeholder="Enter Server Username" [(ngModel)]="projectData.serverUsername"
+                            #serverUsername="ngModel">
+
+                    </div>
+
+                    <!-- ================= SERVER PASSWORD ================= -->
+                    <div class="col-lg-4 mb-3">
+
+                        <label class="form-label">
+                            <!-- <i class="bi bi-key-fill me-2"></i> -->
+                            Password
+                        </label>
+
+                        <div class="input-group">
+
+                            <input [type]="showServerPassword ? 'text' : 'password'" class="form-control"
+                                name="serverPassword" placeholder="Enter Server Password"
+                                [(ngModel)]="projectData.serverPassword" #serverPassword="ngModel">
+
+                            <button type="button" class="btn btn-outline-secondary"
+                                (click)="showServerPassword = !showServerPassword">
+                                <i class="bi" [ngClass]="showServerPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"> </i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+
+                    <!-- First Column -->
+                    <div class="col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="loginAttachment1" class="form-label fw-semibold">
+                                Attachment
+                            </label>
+
+                            <input id="loginAttachment1" type="file" class="form-control" accept=".doc,.docx,.xls,.xlsx"
+                                (change)="onServer1AttachmentSelected($event)">
+                                <small>only .doc,.docx,.xls,.xlsx</small>
+                        </div>
+                    </div>
+
+                    <!-- Second Column -->
+                    <div class="col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="loginAttachment2" class="form-label fw-semibold">
+                                 Attachment
+                            </label>
+
+                            <input id="loginAttachment2" type="file" class="form-control" accept=".pem, .ppk"
+                                (change)="onServer2AttachmentSelected($event)">
+                                <small>only .pem, .ppk</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= ATTACHMENT ================= -->
+            <!-- New Seperate Attachment -->
+
+            <!-- <div class="info-card mb-4">
+                <div class="info-header">
+                    <i class="bi bi-paperclip"></i>
+                    <h5>Attachment</h5>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label class="form-label">
+                            <i class="bi bi-file-earmark-text me-2"></i>
+                            Attachment
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-paperclip"></i>
+                            </span>
+                            <input type="file" class="form-control" (change)="onFileChange($event)"
+                                accept=".pdf,.doc,.docx,.png,.jpg,.jpeg, .xls, .xlsx">
+                        </div>
+                        @if(selectedFile){
+                        <small class="text-success mt-2 d-block">
+                            <i class="bi bi-check-circle-fill me-1"></i>
+                            {{ selectedFile.name }}
+                        </small>
+                        }
+                    </div>
+
+                </div>
+            </div> -->
+
+            <!-- Send Email Checkbox -->
+
+            <div class="mb-3 d-flex justify-content-center">
+                <p class="form-label mb-2 me-2">
+                    Do you want to send email?
+                </p>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sendEmail" id="sendEmailYes" [value]="true"
+                        [(ngModel)]="projectData.isSendEmail">
+                    <label class="form-check-label" for="sendEmailYes">
+                        Yes
+                    </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sendEmail" id="sendEmailNo" [value]="false"
+                        [(ngModel)]="projectData.isSendEmail">
+                    <label class="form-check-label" for="sendEmailNo">
+                        No
+                    </label>
+                </div>
+            </div>
+
+            <!-- ================= ACTION BUTTONS ================= -->
+            <div class="action-buttons d-flex justify-content-between align-items-center">
+                <button type="button" class="back-button" routerLink="/project">
+                    <span>←</span>
+                    Back
+                </button>
+                <div>
+                    @if(projectId > 0){
+                    <button type="button" class="btn btn-save" (click)="editProject()">
+                        <i class="bi bi-pencil-square me-2"></i>
+                        Update Project
+                    </button>
+                    } @else {
+                    <button type="button" class="btn btn-save" (click)="saveProject()">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        Add Project
+                    </button>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,556 @@
+/* ==========================================
+   DASHBOARD BACKGROUND
+========================================== */
+
+
+
+.dashboard-container{
+    padding:30px;
+    background:#f4f8fb;
+    min-height:100vh;
+}
+ 
+/* ==========================================
+   DASHBOARD CARD
+========================================== */
+ 
+.dashboard-card{
+    min-height: 160px;
+    position:relative;
+    overflow:hidden;
+    border:none;
+    border-radius:22px;
+    background:#fff;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    transition:.35s;
+}
+ 
+ /* .dashboard-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}  */
+ 
+/* Top Border */
+ 
+.dashboard-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:5px;
+background: #53b0e3;
+}
+ 
+/* Background Circle */
+ 
+.dashboard-card::after{
+    content:"";
+    position:absolute;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:rgba(95,158,160,.07);
+    right:-50px;
+    top:-50px;
+}
+ 
+/* ==========================================
+   CARD BODY
+========================================== */
+ 
+.dashboard-card .card-body{
+    padding: 16px 18px;
+}
+ 
+/* ==========================================
+   TITLE
+========================================== */
+ 
+.card-title{
+    font-size:15px;
+    font-weight:700;
+ 
+    margin-bottom:10px;
+    text-transform:none !important;
+}
+ 
+/* ==========================================
+   VALUE
+========================================== */
+ 
+.dashboard-card h2{
+    font-size:34px;
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:8px;
+}
+ 
+.dashboard-card small{
+    color:#9ca3af;
+    font-size:13px;
+}
+ 
+/* ==========================================
+   ICON
+========================================== */
+ 
+/* .dashboard-icon{
+    width:60px;
+    height:59px;
+    border-radius:20px;
+background:linear-gradient(135deg,rgb(#2563ee));
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff!important;
+    font-size:34px;
+    box-shadow:0 15px 30px rgba(95,158,160,.35);
+    transition:.35s;
+} */
+
+.dashboard-icon {
+    width: 60px;
+    height: 59px;
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #53b0e3
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff !important;
+    font-size: 34px;
+
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.35);
+
+    transition: 0.35s;
+}
+ 
+/* .dashboard-card:hover .dashboard-icon{
+    transform:rotate(-8deg) scale(1.08);
+} */
+ 
+/* Icon White */
+ 
+.dashboard-icon i{
+    color:#fff!important;
+}
+ 
+/* ==========================================
+   NUMBER LINE
+========================================== */
+ 
+.dashboard-card h2::after{
+    content:"";
+    display:block;
+    width:55px;
+    height:4px;
+    border-radius:10px;
+    background: #53b0e3;
+    margin-top:8px;
+}
+ 
+/* ==========================================
+   CARD ANIMATION
+========================================== */
+ 
+/* .dashboard-card{
+    animation:fadeCard .5s ease;
+} */
+ 
+@keyframes fadeCard{
+ 
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+ 
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+ 
+}/* ==========================================
+   TABLE CARD
+========================================== */
+ 
+.dashboard-table-card{
+    position:relative;
+    overflow:hidden;
+    border:none;
+    border-radius:22px;
+ 
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    transition:.35s;
+}
+/*
+.dashboard-table-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}  */
+ 
+.dashboard-table-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background: #53b0e3;
+   
+}
+ 
+.dashboard-table-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:rgba(95,158,160,.05);
+    top:-70px;
+    right:-70px;
+}
+ 
+/* ==========================================
+   HEADER
+========================================== */
+ 
+.dashboard-header{
+    background:#fff;
+    border:none;
+    padding:22px 24px;
+   
+}
+ 
+.dashboard-header h5{
+    font-size:20px;
+    font-weight:400;
+    color:#1f2937;
+    margin:0;
+}
+ 
+.dashboard-header p{
+    margin:5px 0 0;
+    color:#9ca3af;
+    font-size:14px;
+}
+ 
+/* ==========================================
+   VIEW ALL BUTTON
+========================================== */
+ 
+.dashboard-header .btn{
+   background: #53b0e3;
+    border:none;
+    color:#fff;
+    border-radius:14px;
+    padding:9px 11px;
+    font-size:14px;
+    font-weight:600;
+    transition:.35s;
+}
+ 
+/* .dashboard-header .btn:hover{
+    box-shadow:0 8px 16px rgba(95,158,160,.25);
+} */
+ 
+/* ==========================================
+   TABLE
+========================================== */
+ 
+.table{
+    margin:0;
+}
+ 
+.table thead{
+    background:#f8fafc;
+}
+ 
+.table thead th{
+    border:none;
+    color:black;
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    padding:18px;
+}
+ 
+.table tbody td{
+    padding:18px;
+    border-top:1px solid #eef2f7;
+    font-size:15px;
+    color:#374151;
+    vertical-align:middle;
+}
+ 
+.table tbody tr{
+    transition:.3s;
+}
+ 
+/* .table tbody tr:hover{
+    background:#f9ffff;
+} */
+ 
+/* ==========================================
+   NAME
+========================================== */
+ 
+.table tbody .fw-normal{
+    /* color:#111827; */
+    font-size:16px;
+    font-weight:700;
+}
+ 
+/* ==========================================
+   STATUS BADGE
+========================================== */
+ 
+.badge{
+    border-radius:30px;
+    padding:8px 18px;
+    font-size:13px;
+    font-weight:700;
+}
+ 
+.badge.bg-success{
+    background:#ebefec!important;
+ background:#2563ee ;
+}
+ 
+.badge.bg-danger{
+    background:#fee2e2!important;
+    color:#dc2626!important;
+}
+ 
+ 
+/* ==========================================
+   SCROLL
+========================================== */
+ 
+.table-responsive::-webkit-scrollbar{
+    height:7px;
+}
+ 
+.table-responsive::-webkit-scrollbar-thumb{
+    background:#b8d8d9;
+    border-radius:20px;
+}
+/* ==========================================
+   AVATAR
+========================================== */
+ 
+.employee-avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+   background:linear-gradient(135deg,rgb(103, 103, 244));
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:15px;
+    font-weight:700;
+    box-shadow:0 8px 18px rgba(95,158,160,.25);
+}
+ 
+.employee-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+ 
+.employee-info strong{
+    color:#111827;
+    font-size:15px;
+    font-weight:600;
+}
+ 
+.employee-info small{
+    color:#9ca3af;
+    font-size:13px;
+}
+ 
+/* ==========================================
+   STATUS BADGE
+========================================== */
+ 
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color: #53b0e3;
+    background-color: #ebefec;
+}
+ 
+.badge::before{
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:currentColor;
+}
+ 
+/* ==========================================
+   CARD ANIMATION
+========================================== */
+ 
+/* .dashboard-card,
+.dashboard-table-card{
+    animation:fadeUp .5s ease;
+} */
+ 
+@keyframes fadeUp{
+ 
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+ 
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+ 
+}
+ 
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+ 
+.dashboard-card:hover{
+    border-color:#5F9EA0;
+}
+ 
+.dashboard-table-card:hover{
+    border-color:#5F9EA0;
+}
+ 
+.table tbody tr:hover .employee-avatar{
+    transform:scale(1.08);
+    transition:.3s;
+}
+ 
+ .table tbody tr:hover .badge{
+    transform:scale(1.05);
+    transition:.3s;
+}
+ 
+/* ==========================================
+   SCROLLBAR
+========================================== */
+ 
+::-webkit-scrollbar{
+    width:8px;
+    height:8px;
+}
+ 
+::-webkit-scrollbar-thumb{
+   background:linear-gradient(135deg,rgb(103, 103, 244));
+    border-radius:30px;
+}
+ 
+::-webkit-scrollbar-thumb:hover{
+        background:#5F9EA0;
+    }
+ 
+    /* ==========================================
+   RESPONSIVE
+========================================== */
+ 
+@media(max-width:992px){
+ 
+    .dashboard-container{
+        padding:20px;
+    }
+ 
+    .dashboard-card .card-body{
+        padding:22px;
+    }
+ 
+}
+ 
+@media(max-width:768px){
+ 
+    .dashboard-container{
+        padding:15px;
+    }
+ 
+    .dashboard-card h2{
+        font-size:32px;
+    }
+ 
+    .dashboard-icon{
+        width:65px;
+        height:65px;
+        font-size:26px;
+    }
+ 
+    .dashboard-header .d-flex{
+        flex-direction:column;
+        align-items:flex-start !important;
+        gap:12px;
+    }
+ 
+    .dashboard-header .btn{
+        width:100%;
+    }
+ 
+    .table th,
+    .table td{
+        font-size:13px;
+        padding:12px;
+    }
+ 
+}
+ 
+@media(max-width:576px){
+ 
+    .dashboard-card,
+    .dashboard-table-card{
+        border-radius:18px;
+    }
+ 
+    .dashboard-card h2{
+        font-size:28px;
+    }
+ 
+    .dashboard-icon{
+        width:58px;
+        height:58px;
+        font-size:22px;
+    }
+ 
+    .dashboard-header h5{
+        font-size:8px;
+    }
+ 
+    .employee-avatar{
+        width:36px;
+        height:36px;
+        font-size:13px;
+    }
+ 
+}
+ 
+/* ==========================================
+   PREMIUM FINISH
+========================================== */
+ 
+.dashboard-card,
+.dashboard-table-card{
+    border:1px solid rgba(95,158,160,.12);
+    backdrop-filter:blur(8px);
+}
+ 
+.dashboard-card:hover,
+.dashboard-table-card:hover{
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.08),
+        0 8px 20px rgba(95,158,160,.15);
+}

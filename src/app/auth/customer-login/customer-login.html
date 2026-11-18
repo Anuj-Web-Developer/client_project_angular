@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+
+  <div class="card shadow" style="width:100%; max-width:400px;">
+
+    <div class="card-body p-4">
+      <div class="text-center mb-4">
+        <div class=" d-inline-flex justify-content-center align-items-center">
+
+          <img src="assets/images/Navy Logo 5.png" alt="Customer Logo" class="img-fluid p-3"
+            style="max-width:250px; max-height:100px;">
+        </div>
+        <h2 class="fw-semibold mt-3 mb-1">
+          Login
+        </h2>
+        <p class="text-muted">
+          Sign in to your account
+        </p>
+      </div>
+      <!-- Email -->
+
+      <div class="mb-3" *ngIf="!otpSent">
+        <!-- <label class="form-label">Email</label> -->
+
+        <input type="email" class="form-control" placeholder="Enter Email" [(ngModel)]="email" name="email">
+
+        <!-- Loader -->
+        <div class="spinner-border text-primary" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <!-- Generate OTP -->
+        <div class="d-grid">
+          <button class="btn btn-primary" (click)="sendOTP()" [disabled]="!email || otpSent">
+            {{ otpSent ? 'OTP Sent' : 'Generate OTP' }}
+          </button>
+        </div>
+
+      </div>
+
+      <!-- OTP -->
+      <div *ngIf="otpSent">
+        <div class="mt-4">
+          <!-- <label class="form-label">Enter OTP</label> -->
+          <input type="text" maxlength="6" class="form-control" placeholder="Enter OTP" [(ngModel)]="otp" name="otp">
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-outline-primary border-0" (click)="sendOTP()">
+            Resend OTP
+          </button>
+        </div>
+
+        <!-- Verify -->
+        <div class="d-grid mt-3">
+          <button class="btn btn-success" (click)="verifyOTP()">
+            Verify OTP and Login
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

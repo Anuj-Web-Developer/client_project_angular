@@ -1,0 +1,114 @@
+<!-- <div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Customer List</h5>
+            <button class="btn btn-light btn-sm" routerLink="/customer/add-customer">
+                <i class="bi bi-plus-circle me-1"></i>
+                Add Customer
+            </button>
+        </div>
+        <div class="card-body table-responsive">
+            <table id="customerTable" class="table table-bordered table-hover table-striped align-middle">
+                <thead  class="table-primary">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Company</th>
+                        <th>GST No.</th>
+                        <th>Address</th>
+                        <th>Billing Address</th>
+                        <th>Status</th>
+                        <th width="120">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customerList; let i = index">
+                        <td><a [routerLink]="['/customer/view-customer',customer.id]" style="text-decoration: none;">{{ customer.name }}</a></td>
+                        <td>{{ customer.email }}</td>
+                        <td>{{ customer.contact }}</td>
+                        <td>{{ customer.companyName }}</td>
+                        <td>{{ customer.gstNo }}</td>
+                        <td>{{ customer.address }}</td>
+                        <td>{{ customer.billingAddress }}</td>
+                        <td>
+                            <span class="badge" [ngClass]="customer.status == 1 ? 'bg-success' : 'bg-danger'">
+                                {{ customer.status == 1 ? 'Active' : 'Inactive' }}
+                            </span>
+                        </td>
+                        <td>
+            <button class="btn btn-sm btn-warning me-2" [routerLink]="['/customer/add-customer', customer.id]">
+                                <i class="bi bi-pencil-square">Edit</i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="customerList.length == 0">
+                        <td colspan="10" class="text-center text-muted">
+                            No Customer Found
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <h3>Total Users: {{ userList.length }}</h3> -->
+<div class="container mt-4  customer">
+    <div class="card shadow-lg border-0">
+        <!-- Header -->
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0" style="color: black; font-weight:700; font-size:18px">Customer</h4>
+            <button class="btn btn-light" routerLink="/customer/add-customer">
+                <i class="bi bi-plus-circle"></i>
+                Add New Customer
+            </button>
+        </div>
+        <!-- Body -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="customerTable" class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Company</th>
+                            <!-- <th>GST No.</th> -->
+                            <!-- <th>Address</th> -->
+                            <!-- <th>Billing Address</th> -->
+                             <th>Created At</th>
+                            <th>Status</th>
+                            <th width="120">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let customer of customerList; let i = index">
+                            <td><a [routerLink]="['/customer/view-customer',customer.id]"
+                                    style="text-decoration: none;">{{ customer.name }}</a></td>
+                            <td>{{ customer.email }}</td>
+                            <td>{{ customer.contact }}</td>
+                            <td>{{ customer.companyName }}</td>
+                            <!-- <td>{{ customer.gstNo }}</td> -->
+                            <!-- <td>{{ customer.address }}</td> -->
+                            <!-- <td>{{ customer.billingAddress }}</td> -->
+                             <td>{{customer.createdAt | date:'dd-MM-yyyy'}}</td>
+                            <td>
+                                <span class="badge" [ngClass]="customer.status == 1 ? 'bg-success' : 'bg-danger'">
+                                    {{ customer.status == 1 ? 'Active' : 'Inactive' }}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-warning me-2"
+                                    [routerLink]="['/customer/add-customer', customer.id]" class="btn btn-secondary">
+                                <i class="bi bi-pencil-square"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
